@@ -12,7 +12,7 @@ const roles = [
 const facts = [
   { icon: MapPin, label: "Location", value: "Rustenburg, North West, ZA" },
   { icon: Briefcase, label: "Active Roles", value: "3 concurrent positions" },
-  { icon: GraduationCap, label: "Education", value: "NCV IT & Computer Sciences — Orbit TVET" },
+  { icon: GraduationCap, label: "Education", value: "NCV IT & Computer Sciences(NQF Level 4) - Orbit TVET College" },
   { icon: Code2, label: "GitHub", value: "github.com/KodEx-SA" },
 ]
 

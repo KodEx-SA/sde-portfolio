@@ -41,7 +41,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-700 font-mono text-xs leading-relaxed">
-              Full-Stack Developer &amp; AI Engineer building production-ready software from South Africa.
+              Software Developer &amp; AI Engineer building production-ready software from South Africa.
             </p>
             <div className="flex items-center gap-1.5 text-gray-700 font-mono text-[10px]">
               <MapPin className="w-3 h-3 text-green-800" />
@@ -102,7 +102,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="mt-1 px-4 py-2 text-center text-xs font-mono font-bold bg-green-500/8 border border-green-500/20 text-green-500 rounded-lg hover:bg-green-500/15 hover:border-green-500/40 transition-all duration-200"
               >
-                resume.pdf ↓
+                resume.pdf
               </a>
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-gray-800 font-mono text-[10px]">&copy; {year} Ashley Koketso Motsie · All rights reserved</p>
+          <p className="text-gray-800 font-mono text-[10px]">&copy; {year} Ashley K Motsie · All rights reserved</p>
           <div className="flex items-center gap-2 text-gray-800 font-mono text-[10px]">
             <span>crafted with</span>
             <span className="text-green-900">♥</span>
