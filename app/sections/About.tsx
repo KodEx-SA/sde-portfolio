@@ -46,9 +46,9 @@ export default function About() {
               <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border border-green-500/20">
                 <Image
                   src="/assets/images/my_pic.png"
-                  alt="Ashley Motsie"
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  alt="..."
                 />
               </div>
               <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-green-500/50" />

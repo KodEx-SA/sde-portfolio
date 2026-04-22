@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://chatdevhub.netlify.app'),
   title: "Ashley Motsie | Software Developer",
   description: "Full-Stack Developer & AI Engineer based in Rustenburg, South Africa. Building production-ready web apps and AI-powered tools.",
   openGraph: {
