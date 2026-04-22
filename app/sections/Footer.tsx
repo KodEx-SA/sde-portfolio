@@ -30,7 +30,7 @@ const terminalLines = [
   { prompt: true, text: "whoami" },
   { prompt: false, text: "Ashley Koketso Motsie" },
   { prompt: true, text: "cat status.txt" },
-  { prompt: false, text: "✓ Open to remote opportunities" },
+  { prompt: false, text: "Open to remote, hybrid & on-site opportunities" },
   { prompt: true, text: "ls expertise/" },
   { prompt: false, text: "fullstack/ ai/ devops/ design/" },
   { prompt: true, text: "_" },
@@ -209,12 +209,11 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-gray-800 font-mono text-[10px]">
-            &copy; {year} Ashley Koketso Motsie &nbsp;·&nbsp; All rights reserved
+            &copy; {year} &nbsp; Ashley Koketso Motsie &nbsp;·&nbsp; All rights reserved
           </p>
           <div className="flex items-center gap-3 text-gray-800 font-mono text-[10px]">
-            <span>crafted with <span className="text-green-900">♥</span> in rustenburg, za</span>
+            <span>Crafted with <span className="text-green-900">♥</span> in rustenburg, za</span>
             <span className="text-gray-900">·</span>
-            <span className="text-green-900">v1.0.0</span>
           </div>
         </div>
       </div>
