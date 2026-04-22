@@ -18,7 +18,7 @@ const projects = [
   {
     title: "Sasbo AI Symposium 2026",
     description: "Finance union AI Symposium platform — advanced scroll animations, particle networks, countdown timer, event schedule, speaker showcase, and registration. Built with Next.js 15 and TypeScript.",
-    image: "",
+    image: "/assets/images/sasbo.jpeg",
     tags: ["Event", "Finance"],
     stack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/KodEx-SA/sasbo-ai-symposium",
