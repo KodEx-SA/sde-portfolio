@@ -77,11 +77,11 @@ export default function About() {
             {/* Bio */}
             <div className="space-y-4">
               <p className="text-gray-400 text-sm leading-relaxed">
-                I&apos;m a Full-Stack Developer and AI Engineer based in Rustenburg, South Africa — currently
-                juggling three active roles while building production-ready software for real clients and businesses.
+                I&apos;m a Software Developer and AI Engineer based in Rustenburg, South Africa. Currently
+                juggling three active roles, building production-ready software for real clients and businesses.
               </p>
               <p className="text-gray-400 text-sm leading-relaxed">
-                I work across the full stack — from crafting responsive frontends with React and Next.js to building
+                I work across the full-stack projects from crafting responsive frontends with React and Next.js to building
                 secure backend APIs, integrating AI/LLM pipelines, and deploying to cloud platforms. My work spans
                 web apps, AI chatbots, e-commerce platforms, and internal business tools.
               </p>
