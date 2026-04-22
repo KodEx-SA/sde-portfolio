@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Terminal } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { Terminal, X, Download } from "lucide-react"
 
 const navLinks = [
   { label: "home", href: "#hero", num: "01" },
@@ -16,6 +16,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const [time, setTime] = useState("")
+  const panelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30)
@@ -23,11 +25,21 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // Live clock for the terminal panel
+  useEffect(() => {
+    const tick = () => setTime(new Date().toLocaleTimeString("en-ZA", { hour: "2-digit", minute: "2-digit", second: "2-digit" }))
+    tick()
+    const id = setInterval(tick, 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  // Body scroll lock
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : ""
     return () => { document.body.style.overflow = "" }
   }, [menuOpen])
 
+  // Active section tracker
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,21 +56,31 @@ export default function Header() {
     return () => observer.disconnect()
   }, [])
 
+  // Close on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        setMenuOpen(false)
+      }
+    }
+    if (menuOpen) document.addEventListener("mousedown", handleClick)
+    return () => document.removeEventListener("mousedown", handleClick)
+  }, [menuOpen])
+
   const handleNavClick = (href: string) => {
     setMenuOpen(false)
     setTimeout(() => {
-      const el = document.querySelector(href)
-      el?.scrollIntoView({ behavior: "smooth" })
-    }, 300)
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+    }, 320)
   }
 
   return (
     <>
-      {/* NAVBAR */}
+      {/* ── NAVBAR ── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-black/75 backdrop-blur-2xl border-b border-green-500/10 shadow-[0_4px_40px_rgba(0,0,0,0.6)]"
+            ? "bg-black/80 backdrop-blur-2xl border-b border-green-500/10 shadow-[0_2px_30px_rgba(0,0,0,0.7)]"
             : "bg-transparent"
         }`}
       >
@@ -70,7 +92,7 @@ export default function Header() {
             onClick={(e) => { e.preventDefault(); handleNavClick("#hero") }}
             className="flex items-center gap-2.5 group"
           >
-            <div className="relative w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/25 flex items-center justify-center overflow-hidden group-hover:border-green-500/60 transition-all duration-300">
+            <div className="relative w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/25 flex items-center justify-center overflow-hidden group-hover:border-green-500/50 transition-all duration-300">
               <div className="absolute inset-0 bg-green-500/15 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <Terminal className="w-4 h-4 text-green-400 relative z-10" />
             </div>
@@ -109,112 +131,133 @@ export default function Header() {
               href="/assets/resume/Ashley_K_Motsie_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-3 px-4 py-1.5 text-xs font-mono font-bold bg-green-500 hover:bg-green-400 text-black rounded-md transition-all duration-200 shadow-[0_0_16px_rgba(74,222,128,0.35)] hover:shadow-[0_0_28px_rgba(74,222,128,0.6)] hover:-translate-y-px active:translate-y-0"
+              className="ml-3 px-4 py-1.5 text-xs font-mono font-bold bg-green-500 hover:bg-green-400 text-black rounded-md transition-all duration-200 shadow-[0_0_16px_rgba(74,222,128,0.35)] hover:shadow-[0_0_28px_rgba(74,222,128,0.55)] hover:-translate-y-px"
             >
               resume.pdf
             </a>
           </nav>
 
-          {/* Mobile hamburger — morphing lines */}
+          {/* Mobile — morphing hamburger */}
           <button
-            className="md:hidden flex flex-col items-end justify-center gap-[5px] w-10 h-10 relative"
+            className="md:hidden flex flex-col items-end justify-center gap-[5px] w-10 h-10"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`block h-px bg-green-400 origin-center transition-all duration-300 ease-in-out ${menuOpen ? "w-5 rotate-45 translate-y-[6px]" : "w-5"}`} />
+            <span className={`block h-px bg-green-400 origin-right transition-all duration-300 ${menuOpen ? "w-5 rotate-45 translate-y-[6px] origin-center" : "w-5"}`} />
             <span className={`block h-px bg-green-400 transition-all duration-200 ${menuOpen ? "w-0 opacity-0" : "w-3"}`} />
-            <span className={`block h-px bg-green-400 origin-center transition-all duration-300 ease-in-out ${menuOpen ? "w-5 -rotate-45 -translate-y-[6px]" : "w-5"}`} />
+            <span className={`block h-px bg-green-400 origin-right transition-all duration-300 ${menuOpen ? "w-5 -rotate-45 -translate-y-[6px] origin-center" : "w-5"}`} />
           </button>
         </div>
       </header>
 
-      {/* FULL-SCREEN OVERLAY MENU */}
+      {/* ── SLIDE-IN PANEL (mobile) ── */}
+
+      {/* Dim backdrop */}
       <div
-        className={`fixed inset-0 z-40 transition-all duration-500 ease-in-out ${
+        onClick={() => setMenuOpen(false)}
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-400 md:hidden ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
+      />
+
+      {/* Panel */}
+      <div
+        ref={panelRef}
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-[#070707] border-l border-green-500/15 shadow-[-20px_0_60px_rgba(0,0,0,0.8)] flex flex-col transition-transform duration-400 ease-in-out md:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        {/* Backdrop */}
-        <div className="absolute inset-0 bg-[#020202]/98 backdrop-blur-2xl" />
-
-        {/* Animated grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.04)_1px,transparent_1px)] bg-[size:40px_40px] opacity-60" />
-
-        {/* Glow blob */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-green-500/5 rounded-full blur-3xl pointer-events-none" />
-
-        {/* Decorative large number */}
-        <div className="absolute bottom-0 right-0 text-[20vw] font-black font-mono text-green-500/3 leading-none select-none pointer-events-none">
-          AM
+        {/* Panel top bar */}
+        <div className="flex items-center justify-between px-5 h-16 border-b border-green-500/10 flex-shrink-0">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-red-500/70" />
+            <span className="w-2 h-2 rounded-full bg-yellow-500/70" />
+            <span className="w-2 h-2 rounded-full bg-green-500/70" />
+            <span className="ml-2 text-gray-700 font-mono text-[9px]">nav.sh</span>
+          </div>
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="w-7 h-7 rounded-md border border-green-500/15 bg-green-500/5 flex items-center justify-center text-gray-600 hover:text-green-400 hover:border-green-500/35 transition-all duration-200"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
         </div>
 
-        <div className="relative z-10 flex flex-col h-full px-8 pt-24 pb-10 max-w-lg">
+        {/* Terminal prompt */}
+        <div className="px-5 py-4 border-b border-green-500/8 flex-shrink-0">
+          <p className="text-green-700 font-mono text-[10px]">$ cat navigation.txt</p>
+        </div>
 
-          {/* Terminal header */}
-          <div className="mb-8">
-            <p
-              className="text-green-600 font-mono text-xs"
-              style={{ opacity: menuOpen ? 1 : 0, transition: "opacity 0.3s ease 0.1s" }}
-            >
-              $ cat navigation.txt
-            </p>
-            <div
-              className="w-8 h-px bg-green-500/50 mt-2"
-              style={{
-                transform: menuOpen ? "scaleX(1)" : "scaleX(0)",
-                transition: "transform 0.4s ease 0.2s",
-                transformOrigin: "left",
-              }}
-            />
-          </div>
-
-          {/* Nav items */}
-          <nav className="flex flex-col gap-0 flex-1">
-            {navLinks.map((link, i) => (
+        {/* Nav links */}
+        <nav className="flex-1 flex flex-col px-3 py-3 overflow-y-auto">
+          {navLinks.map((link, i) => {
+            const isActive = activeSection === link.href.replace("#", "")
+            return (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }}
-                className="group flex items-center gap-5 py-4 border-b border-green-500/8 hover:border-green-500/30 transition-all duration-200"
+                className={`group flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 ${
+                  isActive
+                    ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                    : "hover:bg-green-500/5 hover:border border-transparent text-gray-500 hover:text-gray-200"
+                }`}
                 style={{
-                  transform: menuOpen ? "translateX(0)" : "translateX(-30px)",
+                  transitionDelay: menuOpen ? `${i * 40}ms` : "0ms",
+                  transform: menuOpen ? "translateX(0)" : "translateX(16px)",
                   opacity: menuOpen ? 1 : 0,
-                  transition: `transform 0.45s cubic-bezier(0.22,1,0.36,1) ${i * 65}ms, opacity 0.45s ease ${i * 65}ms, border-color 0.2s ease`,
+                  transition: `transform 0.35s cubic-bezier(0.22,1,0.36,1) ${i * 40}ms, opacity 0.3s ease ${i * 40}ms, background-color 0.2s ease, color 0.2s ease`,
                 }}
               >
-                <span className="text-green-800 font-mono text-[10px] w-5 flex-shrink-0">{link.num}</span>
-                <span className="text-white font-mono font-black text-4xl tracking-tight group-hover:text-green-400 transition-colors duration-200">
+                <span className={`font-mono text-[9px] w-5 flex-shrink-0 ${isActive ? "text-green-600" : "text-gray-700"}`}>
+                  {link.num}
+                </span>
+                <span className={`font-mono text-sm font-semibold ${isActive ? "text-green-400" : ""}`}>
+                  {isActive && <span className="text-green-600 mr-1">&gt;</span>}
                   {link.label}
                 </span>
-                <span className="ml-auto text-green-700 font-mono text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200">
-                  /
-                </span>
+                {isActive && (
+                  <span className="ml-auto w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
+                )}
               </a>
-            ))}
-          </nav>
+            )
+          })}
+        </nav>
 
-          {/* Bottom CTA */}
-          <div
-            className="mt-8 flex flex-col gap-3"
+        {/* Bottom section */}
+        <div className="flex-shrink-0 border-t border-green-500/10 px-5 py-5 flex flex-col gap-3">
+          <a
+            href="/assets/resume/Ashley_K_Motsie_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-mono font-bold bg-green-500 hover:bg-green-400 text-black rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(74,222,128,0.25)]"
             style={{
-              transform: menuOpen ? "translateY(0)" : "translateY(12px)",
               opacity: menuOpen ? 1 : 0,
-              transition: "transform 0.4s ease 420ms, opacity 0.4s ease 420ms",
+              transform: menuOpen ? "translateY(0)" : "translateY(8px)",
+              transition: "opacity 0.4s ease 280ms, transform 0.4s ease 280ms",
             }}
           >
-            <a
-              href="/assets/resume/Ashley_K_Motsie_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3.5 text-center font-mono font-bold text-sm bg-green-500 hover:bg-green-400 text-black rounded-xl transition-all duration-200 shadow-[0_0_30px_rgba(74,222,128,0.25)]"
-            >
-              download resume.pdf
-            </a>
-            <p className="text-gray-700 font-mono text-[10px] text-center tracking-wide">
-              ashley<span className="text-green-800">@dev</span> · rustenburg, north west, za
-            </p>
+            <Download className="w-3.5 h-3.5" />
+            resume.pdf
+          </a>
+
+          {/* Status bar */}
+          <div
+            className="flex items-center justify-between"
+            style={{
+              opacity: menuOpen ? 1 : 0,
+              transition: "opacity 0.4s ease 320ms",
+            }}
+          >
+            <span className="text-gray-800 font-mono text-[9px]">
+              ashley<span className="text-green-900">@dev</span>
+            </span>
+            <span className="text-green-900 font-mono text-[9px]">{time} SAST</span>
           </div>
         </div>
+
+        {/* Subtle grid texture inside panel */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.025)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none rounded-l" />
       </div>
     </>
   )
