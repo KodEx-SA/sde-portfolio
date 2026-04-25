@@ -162,10 +162,14 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-gray-700 z-10">
-        <span className="text-[9px] font-mono tracking-[0.25em] uppercase">scroll</span>
+      <button
+        onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-gray-600 hover:text-green-400 transition-colors duration-200 z-20 cursor-pointer group"
+        aria-label="Scroll to next section"
+      >
+        <span className="text-[9px] font-mono tracking-[0.25em] uppercase group-hover:text-green-400 transition-colors duration-200">scroll</span>
         <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-      </div>
+      </button>
     </section>
   )
 }
