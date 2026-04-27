@@ -60,10 +60,10 @@ const EXPERIENCE = `
 const STACK = `
 =================================== TECH STACK ===================================
 Frontend:   React, Next.js, TypeScript, Tailwind CSS, Framer Motion, HTML5, CSS3
-Backend:    Node.js, Express, NestJS, Python, FastAPI, Flask, Django, REST APIs
-Databases:  PostgreSQL, Neon DB, Supabase, Prisma ORM, MongoDB, Redis, SQLite
-AI & ML:    Groq API, OpenAI API, Anthropic Claude, LangChain, LiveKit, PyTorch
-DevOps:     Docker, Git, GitHub, Netlify, Vercel, Render, AWS, Azure, Linux Mint
+Backend:    Node.js, Python, Flask, Django, REST APIs
+Databases:  PostgreSQL, Neon DB, Supabase, Prisma ORM, SQL
+AI & ML:    Groq API, OpenAI API, Anthropic Claude, LiveKit, PyTorch
+DevOps:     Docker, Git, GitHub, Netlify, Vercel, Render, AWS, Linux Mint
 Design:     Figma, Canva, UI/UX Design, Responsive Design, Graphic Design
 `.trim();
 
