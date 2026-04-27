@@ -13,16 +13,16 @@ import {
 // To add a new route: add it here - nowhere else needs to change.
 
 const PRIMARY_LINKS = [
-  { label: "Home",       href: "#hero",         icon: Home },
-  { label: "About",      href: "#about",         icon: User },
-  { label: "Experience", href: "#experience",    icon: Briefcase },
-  { label: "Projects",   href: "#projects",      icon: FolderOpen },
-  { label: "Skills",     href: "#skills",        icon: Code2 },
+  { label: "Home", href: "#hero", icon: Home },
+  { label: "About", href: "#about", icon: User },
+  { label: "Experience", href: "#experience", icon: Briefcase },
+  { label: "Projects", href: "#projects", icon: FolderOpen },
+  { label: "Skills", href: "#skills", icon: Code2 },
 ]
 
 const MORE_LINKS = [
   { label: "Achievements", href: "#achievements", icon: Trophy },
-  { label: "Contact",      href: "#contact",      icon: Mail },
+  { label: "Contact", href: "#contact", icon: Mail },
 ]
 
 // All links in order - used by the mobile slide-in panel
@@ -34,21 +34,21 @@ const ALL_LINKS = [...PRIMARY_LINKS, ...MORE_LINKS].map((link, i) => ({
 // =================================== Component ===================================
 
 export default function Header() {
-  const [scrolled,       setScrolled]       = useState(false)
-  const [mobileOpen,     setMobileOpen]     = useState(false)
-  const [moreOpen,       setMoreOpen]       = useState(false)
-  const [activeSection,  setActiveSection]  = useState("hero")
-  const [clock,          setClock]          = useState("")
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+  const [clock, setClock] = useState("");
 
   const panelRef = useRef<HTMLDivElement>(null)
-  const moreRef  = useRef<HTMLDivElement>(null)
+  const moreRef = useRef<HTMLDivElement>(null)
 
   // Scroll shadow
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 30)
     window.addEventListener("scroll", handler)
     return () => window.removeEventListener("scroll", handler)
-  }, [])
+  }, []);
 
   // Live SAST clock shown in mobile panel
   useEffect(() => {
@@ -59,13 +59,13 @@ export default function Header() {
     tick()
     const id = setInterval(tick, 1000)
     return () => clearInterval(id)
-  }, [])
+  }, []);
 
   // Lock body scroll while mobile panel is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : ""
     return () => { document.body.style.overflow = "" }
-  }, [mobileOpen])
+  }, [mobileOpen]);
 
   // Highlight the active section as the user scrolls
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function Header() {
       if (el) observer.observe(el)
     })
     return () => observer.disconnect()
-  }, [])
+  }, []);
 
   // Close mobile panel on outside click
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function Header() {
     }
     document.addEventListener("mousedown", handler)
     return () => document.removeEventListener("mousedown", handler)
-  }, [mobileOpen])
+  }, [mobileOpen]);
 
   // Close "More" dropdown on outside click
   useEffect(() => {
@@ -99,7 +99,7 @@ export default function Header() {
     }
     document.addEventListener("mousedown", handler)
     return () => document.removeEventListener("mousedown", handler)
-  }, [])
+  }, []);
 
   // Smooth-scroll helper — also closes both menus
   const navigate = (href: string) => {
@@ -115,11 +115,10 @@ export default function Header() {
     <>
       {/* =================================== TOP BAR =================================== */}
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-black/80 backdrop-blur-2xl border-b border-green-500/10 shadow-[0_2px_30px_rgba(0,0,0,0.7)]"
-            : "bg-transparent"
-        }`}
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled
+          ? "bg-black/80 backdrop-blur-2xl border-b border-green-500/10 shadow-[0_2px_30px_rgba(0,0,0,0.7)]"
+          : "bg-transparent"
+          }`}
       >
         {/*
           Layout: flex with three children.
@@ -165,15 +164,13 @@ export default function Header() {
                     key={label}
                     href={href}
                     onClick={(e) => { e.preventDefault(); navigate(href) }}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 group ${
-                      isActive(href)
-                        ? "bg-green-500 text-black shadow-[0_0_12px_rgba(74,222,128,0.4)]"
-                        : "text-gray-500 hover:text-gray-200 hover:bg-white/5"
-                    }`}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 group ${isActive(href)
+                      ? "bg-green-500 text-black shadow-[0_0_12px_rgba(74,222,128,0.4)]"
+                      : "text-gray-500 hover:text-gray-200 hover:bg-white/5"
+                      }`}
                   >
-                    <Icon className={`w-3.5 h-3.5 flex-shrink-0 transition-colors duration-200 ${
-                      isActive(href) ? "text-black" : "text-gray-600 group-hover:text-gray-300"
-                    }`} />
+                    <Icon className={`w-3.5 h-3.5 flex-shrink-0 transition-colors duration-200 ${isActive(href) ? "text-black" : "text-gray-600 group-hover:text-gray-300"
+                      }`} />
                     {label}
                   </a>
                 ))}
@@ -185,11 +182,10 @@ export default function Header() {
                 <div ref={moreRef} className="relative">
                   <button
                     onClick={() => setMoreOpen((o) => !o)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 ${
-                      moreIsActive
-                        ? "bg-green-500 text-black shadow-[0_0_12px_rgba(74,222,128,0.4)]"
-                        : "text-gray-500 hover:text-gray-200 hover:bg-white/5"
-                    }`}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 ${moreIsActive
+                      ? "bg-green-500 text-black shadow-[0_0_12px_rgba(74,222,128,0.4)]"
+                      : "text-gray-500 hover:text-gray-200 hover:bg-white/5"
+                      }`}
                   >
                     More
                     <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${moreOpen ? "rotate-180" : ""}`} />
@@ -202,11 +198,10 @@ export default function Header() {
                           key={label}
                           href={href}
                           onClick={(e) => { e.preventDefault(); navigate(href) }}
-                          className={`flex items-center gap-2.5 px-4 py-2.5 text-xs font-mono transition-all duration-150 ${
-                            isActive(href)
-                              ? "bg-green-500/15 text-green-400 border-l-2 border-green-500"
-                              : "text-gray-500 hover:text-gray-200 hover:bg-white/5"
-                          }`}
+                          className={`flex items-center gap-2.5 px-4 py-2.5 text-xs font-mono transition-all duration-150 ${isActive(href)
+                            ? "bg-green-500/15 text-green-400 border-l-2 border-green-500"
+                            : "text-gray-500 hover:text-gray-200 hover:bg-white/5"
+                            }`}
                         >
                           <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${isActive(href) ? "text-green-400" : "text-gray-700"}`} />
                           {label}
@@ -256,17 +251,15 @@ export default function Header() {
       <div
         aria-hidden="true"
         onClick={() => setMobileOpen(false)}
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       />
 
       {/* Panel */}
       <div
         ref={panelRef}
-        className={`fixed top-0 right-0 z-50 h-full w-72 bg-[#070707] border-l border-green-500/15 shadow-[-20px_0_60px_rgba(0,0,0,0.8)] flex flex-col transition-transform duration-350 ease-in-out md:hidden ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-[#070707] border-l border-green-500/15 shadow-[-20px_0_60px_rgba(0,0,0,0.8)] flex flex-col transition-transform duration-350 ease-in-out md:hidden ${mobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Subtle grid texture */}
         <div
@@ -304,18 +297,17 @@ export default function Header() {
               href={href}
               onClick={(e) => { e.preventDefault(); navigate(href) }}
               style={{
-                transform:               mobileOpen ? "translateX(0)" : "translateX(14px)",
-                opacity:                 mobileOpen ? 1 : 0,
-                transitionProperty:      "transform, opacity, background-color, color",
-                transitionDuration:      "0.35s, 0.30s, 0.2s, 0.2s",
-                transitionTimingFunction:"cubic-bezier(0.22,1,0.36,1), ease, ease, ease",
-                transitionDelay:         mobileOpen ? `${i * 35}ms, ${i * 35}ms, 0ms, 0ms` : "0ms",
+                transform: mobileOpen ? "translateX(0)" : "translateX(14px)",
+                opacity: mobileOpen ? 1 : 0,
+                transitionProperty: "transform, opacity, background-color, color",
+                transitionDuration: "0.35s, 0.30s, 0.2s, 0.2s",
+                transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1), ease, ease, ease",
+                transitionDelay: mobileOpen ? `${i * 35}ms, ${i * 35}ms, 0ms, 0ms` : "0ms",
               }}
-              className={`group flex items-center gap-3 px-3 py-2.5 rounded-lg ${
-                isActive(href)
-                  ? "bg-green-500/12 border border-green-500/25 text-green-400"
-                  : "text-gray-500 hover:bg-green-500/5 hover:text-gray-200"
-              }`}
+              className={`group flex items-center gap-3 px-3 py-2.5 rounded-lg ${isActive(href)
+                ? "bg-green-500/12 border border-green-500/25 text-green-400"
+                : "text-gray-500 hover:bg-green-500/5 hover:text-gray-200"
+                }`}
             >
               <span className={`font-mono text-[9px] w-5 flex-shrink-0 ${isActive(href) ? "text-green-600" : "text-gray-700"}`}>
                 {num}
@@ -337,8 +329,8 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              opacity:    mobileOpen ? 1 : 0,
-              transform:  mobileOpen ? "translateY(0)" : "translateY(8px)",
+              opacity: mobileOpen ? 1 : 0,
+              transform: mobileOpen ? "translateY(0)" : "translateY(8px)",
               transition: "opacity 0.4s ease 250ms, transform 0.4s ease 250ms",
             }}
             className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-mono font-bold bg-green-500 hover:bg-green-400 text-black rounded-lg transition-colors duration-200 shadow-[0_0_20px_rgba(74,222,128,0.25)]"
