@@ -4,6 +4,7 @@ import { Terminal, AnimatedSpan, TypingAnimation } from "@/components/ui/termina
 import { Button } from "@/components/ui/button"
 import { Meteors } from "@/components/ui/meteors"
 import { ArrowDown, Download, FolderOpen, Mail, GitBranch, ExternalLink } from "lucide-react"
+import { FaGithub } from "react-icons/fa"
 
 export default function Hero() {
   return (
@@ -108,7 +109,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-2 text-gray-600 hover:text-green-400 font-mono text-xs transition-colors duration-200"
               >
-                <GitBranch className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-200" />
+                <FaGithub className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-200" />
                 KodEx-SA
               </a>
               <span className="text-gray-800 text-xs">·</span>

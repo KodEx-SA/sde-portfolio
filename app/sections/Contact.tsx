@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Send, Mail, MapPin, GitBranch, CheckCircle, ArrowUpRight } from "lucide-react"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
 import { Button } from "@/components/ui/button"
 
 const contactInfo = [
@@ -20,19 +21,19 @@ const contactInfo = [
     hint: "Open to remote worldwide",
   },
   {
-    icon: GitBranch,
+    icon: FaGithub,
     label: "GitHub",
     value: "github.com/KodEx-SA",
     href: "https://github.com/KodEx-SA",
     hint: "See my open source work",
   },
-  // {
-  //   icon: Linkedin,
-  //   label: "LinkedIn",
-  //   value: "linkedin.com/in/ashley-motsie",
-  //   href: "https://linkedin.com/in/ashley-motsie",
-  //   hint: "Professional networking",
-  // },
+  {
+    icon: FaLinkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/ashley-motsie",
+    href: "https://linkedin.com/in/ashley-motsie",
+    hint: "Professional networking",
+  },
 ]
 
 export default function Contact() {
@@ -135,7 +136,7 @@ export default function Contact() {
                   onClick={() => { setSent(false); setForm({ name: "", email: "", subject: "", message: "" }) }}
                   className="text-green-500 font-mono text-xs hover:text-green-300 transition-colors border border-green-500/20 hover:border-green-500/40 px-4 py-2 rounded-lg"
                 >
-                  send another →
+                  send another message
                 </button>
               </div>
             ) : (

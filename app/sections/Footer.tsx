@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Terminal, GitBranch, Mail, MapPin, ArrowUpRight, Download } from "lucide-react"
+import { FaGithub, FaTwitter } from "react-icons/fa"
 
 const quickLinks = [
   { label: "home", href: "#hero" },
@@ -22,7 +23,8 @@ const techStack = [
 ]
 
 const socials = [
-  { label: "GitHub", href: "https://github.com/KodEx-SA", icon: GitBranch },
+  { label: "GitHub", href: "https://github.com/KodEx-SA", icon: FaGithub },
+  { label: "Twitter", href: "https://twitter.com/ashley_motsie", icon: FaTwitter },
   { label: "Email", href: "mailto:motsieashley31@gmail.com", icon: Mail },
 ]
 
@@ -32,7 +34,7 @@ const terminalLines = [
   { prompt: true, text: "cat status.txt" },
   { prompt: false, text: "Open to remote, hybrid & on-site opportunities" },
   { prompt: true, text: "ls expertise/" },
-  { prompt: false, text: "fullstack/ ai/ devops/ design/" },
+  { prompt: false, text: "software dev/ ai/ devops/ design/" },
   { prompt: true, text: "_" },
 ]
 

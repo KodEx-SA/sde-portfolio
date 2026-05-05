@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { ExternalLink, GitBranch, ArrowUpRight, Globe } from "lucide-react"
+import { FaGithub } from "react-icons/fa"
 
 const projects = [
   {
@@ -196,7 +197,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-xs font-mono text-green-400 border border-green-500/25 hover:border-green-400/50 hover:bg-green-500/8 px-5 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-px"
                   >
-                    <GitBranch className="w-3.5 h-3.5" />
+                    <FaGithub className="w-3.5 h-3.5" />
                     Source
                   </a>
                 </div>
@@ -304,7 +305,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-[10px] font-mono text-gray-700 hover:text-gray-400 transition-colors"
                   >
-                    <GitBranch className="w-3 h-3" />
+                    <FaGithub className="w-3 h-3" />
                     Source
                   </a>
                 </div>
@@ -321,7 +322,7 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="group flex items-center gap-2 text-sm font-mono text-gray-600 hover:text-green-400 border border-white/8 hover:border-green-500/25 px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-px"
           >
-            <GitBranch className="w-4 h-4" />
+            <FaGithub className="w-4 h-4" />
             View all projects on GitHub
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </a>
