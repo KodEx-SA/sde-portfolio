@@ -186,7 +186,7 @@ export default function ChatBot() {
 
   // =================================== Chat window ===================================
   return (
-    <div className="fixed bottom-6 right-6 z-40 w-[640px] sm:w-[580px] flex flex-col rounded-2xl border border-green-500/25 bg-[#080808] shadow-[0_0_60px_rgba(74,222,128,0.12),0_24px_48px_rgba(0,0,0,0.8)] overflow-hidden">
+    <div className="fixed bottom-6 right-6 z-40 w-[540px] sm:w-[480px] flex flex-col rounded-2xl border border-green-500/25 bg-[#080808] shadow-[0_0_60px_rgba(74,222,128,0.12),0_24px_48px_rgba(0,0,0,0.8)] overflow-hidden">
 
       {/* Title bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-green-500/15 bg-[#0a0a0a] flex-shrink-0">
