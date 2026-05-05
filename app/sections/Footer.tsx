@@ -23,7 +23,7 @@ const techStack = [
 
 const socials = [
   { label: "GitHub", href: "https://github.com/KodEx-SA", icon: GitBranch },
-  { label: "Email", href: "mailto:ashley@kodex-sa.dev", icon: Mail },
+  { label: "Email", href: "mailto:motsieashley31@gmail.com", icon: Mail },
 ]
 
 const terminalLines = [
