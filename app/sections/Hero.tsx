@@ -66,7 +66,7 @@ export default function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="group bg-green-500 hover:bg-green-400 text-black font-bold font-mono gap-2 px-6 text-sm shadow-[0_0_24px_rgba(74,222,128,0.4)] hover:shadow-[0_0_40px_rgba(74,222,128,0.6)] hover:-translate-y-px transition-all duration-300 rounded-lg"
+                className="group bg-green-500 hover:bg-green-500 text-white font-bold font-mono gap-2 px-6 text-sm shadow-[0_0_24px_rgba(74,222,128,0.4)] hover:shadow-[0_0_40px_rgba(74,222,128,0.6)] hover:-translate-y-px transition-all duration-300 rounded-lg"
               >
                 <a href="#projects">
                   <FolderOpen className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200" />
