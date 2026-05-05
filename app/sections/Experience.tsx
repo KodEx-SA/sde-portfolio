@@ -8,7 +8,7 @@ const experiences = [
     title: "AI Software Developer",
     company: "AI Global Networks",
     type: "Full-time",
-    period: "2024 — Present",
+    period: "2025 - Present",
     location: "Remote, South Africa",
     current: true,
     description:
@@ -25,7 +25,7 @@ const experiences = [
     title: "Junior Software Developer & IT Technician",
     company: "Eullafied Tech Solutions",
     type: "Full-time",
-    period: "2024 — Present",
+    period: "2025 - Present",
     location: "Rustenburg, North West, ZA",
     current: true,
     description:
@@ -42,7 +42,7 @@ const experiences = [
     title: "Web Developer & Graphic Designer",
     company: "Maps Media Productions",
     type: "Freelance",
-    period: "2023 — Present",
+    period: "2024 - Present",
     location: "Rustenburg, North West, ZA",
     current: true,
     description:
@@ -174,13 +174,13 @@ export default function Experience() {
                       <div className="px-5 pb-5 flex flex-col gap-5 border-t border-green-500/8">
 
                         {/* Description */}
-                        <p className="text-gray-500 text-sm leading-relaxed pt-4">
+                        <p className="text-gray-300 text-sm leading-relaxed pt-4">
                           {exp.description}
                         </p>
 
                         {/* Highlights */}
                         <div>
-                          <p className="text-green-700 font-mono text-[10px] mb-3">$ cat highlights.txt</p>
+                          <p className="text-green-400 font-mono text-[10px] mb-3">$ cat highlights.txt</p>
                           <ul className="flex flex-col gap-2">
                             {exp.highlights.map((h, j) => (
                               <li key={j} className="flex items-start gap-2.5 text-gray-500 text-xs leading-relaxed">
