@@ -196,7 +196,7 @@ export default function Footer() {
               <div className="mt-1 p-3 rounded-lg border border-green-500/8 bg-green-500/3">
                 <p className="text-green-700 font-mono text-[9px] mb-1">$ echo $ROLES</p>
                 <p className="text-gray-700 font-mono text-[10px] leading-relaxed">
-                  3 concurrent active positions
+                  2 concurrent active positions
                 </p>
               </div>
             </div>

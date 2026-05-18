@@ -4,14 +4,14 @@ import Image from "next/image"
 import { MapPin, Briefcase, GraduationCap, Code2 } from "lucide-react"
 
 const roles = [
-  { title: "AI Software Developer", company: "AI Global Networks", type: "Full-time" },
+  // { title: "AI Software Developer", company: "AI Global Networks", type: "Full-time" },
   { title: "Junior Software Developer & IT Technician", company: "Eullafied Tech Solutions", type: "12 months contract" },
-  { title: "Web Developer & Graphic Designer", company: "Maps Media Productions", type: "Freelance" },
+  { title: "Web Developer & Graphic Designer", company: "Maps Media Productions", type: "Full-time" },
 ]
 
 const facts = [
   { icon: MapPin, label: "Location", value: "Rustenburg, North West, ZA" },
-  { icon: Briefcase, label: "Active Roles", value: "3 concurrent positions" },
+  { icon: Briefcase, label: "Active Roles", value: "2 concurrent positions, 1 past position" },
   { icon: GraduationCap, label: "Education", value: "NCV IT & Computer Sciences(NQF Level 4) - Orbit TVET College" },
   { icon: Code2, label: "GitHub", value: "github.com/KodEx-SA" },
 ]
@@ -78,7 +78,7 @@ export default function About() {
             <div className="space-y-4">
               <p className="text-gray-400 text-sm leading-relaxed">
                 I&apos;m a Software Developer and AI Engineer based in Rustenburg, South Africa. Currently
-                juggling three active roles, building production-ready software for real clients and businesses.
+                juggling two active roles, building production-ready software for real clients and businesses.
               </p>
               <p className="text-gray-400 text-sm leading-relaxed">
                 I work across the full-stack projects from crafting responsive frontends with React and Next.js to building

@@ -8,9 +8,9 @@ const experiences = [
     title: "AI Software Developer",
     company: "AI Global Networks",
     type: "Full-time",
-    period: "2025 - Present",
+    period: "July 2025 - May 2026",
     location: "Remote, South Africa",
-    current: true,
+    current: false,
     description:
       "Building and maintaining AI-powered web applications and chatbot systems for the company's client base. Responsible for designing the full-stack architecture, integrating LLM APIs, and deploying production-ready solutions.",
     highlights: [
@@ -25,7 +25,7 @@ const experiences = [
     title: "Junior Software Developer & IT Technician",
     company: "Eullafied Tech Solutions",
     type: "Full-time",
-    period: "2025 - Present",
+    period: "June 2025 - Present",
     location: "Rustenburg, North West, ZA",
     current: true,
     description:
@@ -42,7 +42,7 @@ const experiences = [
     title: "Web Developer & Graphic Designer",
     company: "Maps Media Productions",
     type: "Freelance",
-    period: "2024 - Present",
+    period: "August 2024 - Present",
     location: "Rustenburg, North West, ZA",
     current: true,
     description:
@@ -86,7 +86,7 @@ export default function Experience() {
           <p className="text-green-600 font-mono text-xs">$ echo $ACTIVE_ROLES</p>
           <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5">
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-green-500 font-mono text-xs">3 concurrent active positions</span>
+            <span className="text-green-500 font-mono text-xs">2 concurrent active positions & 1 past position</span>
           </div>
         </div>
 
