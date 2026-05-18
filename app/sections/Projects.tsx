@@ -1,10 +1,21 @@
 "use client"
 
 import Image from "next/image"
-import { ExternalLink, GitBranch, ArrowUpRight, Globe } from "lucide-react"
+import { ExternalLink, ArrowUpRight, Globe } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
 
 const projects = [
+  {
+    title: "Trading-R1 Trace Market",
+    description: "A reasoning-trace marketplace built on Arc. AI agents generate structured investment theses via the TradingAgents framework,  each trace is pinned to IPFS and hashed on-chain, and users stake USDC on which reasoning patterns converge to profit.",
+    image: "/assets/images/screen5.png",
+    tags: ["Arc Testnet", "Web3", "AI", "Finance"],
+    stack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Wagmi + RainbowKit", "Groq", "Foundry"],
+    github: "https://github.com/KodEx-SA/trading-r1",
+    live: "https://trading-r1-trace-market.vercel.app/",
+    year: "2026",
+    featured: true,
+  },
   {
     title: "Generative AI Chatbot",
     description: "Real-time conversational AI chatbot powered by Groq API with streaming responses, context memory, typing indicators, and a polished dark UI. Built for production at AI Global Networks.",

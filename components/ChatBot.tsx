@@ -36,7 +36,6 @@ const WELCOME: Message = {
 }
 
 // =================================== Nav-link parser ===================================
-// Converts [→ Label](#anchor) in AI responses into clickable scroll buttons
 
 function NavLink({
   label,
@@ -145,8 +144,10 @@ export default function ChatBot() {
 
   useEffect(() => {
     if (open) {
-      setUnread(0)
-      setTimeout(() => scrollBottom(), 80)
+      setTimeout(() => {
+        setUnread(0)
+        scrollBottom()
+      }, 0)
       setTimeout(() => inputRef.current?.focus(), 150)
     }
   }, [open, scrollBottom])

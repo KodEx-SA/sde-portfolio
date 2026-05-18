@@ -36,7 +36,7 @@ const skillGroups = [
 const stats = [
   { value: "3+", label: "Years Experience" },
   { value: "15+", label: "Projects Shipped" },
-  { value: "3", label: "Active Roles" },
+  { value: "2", label: "Active Roles" },
   { value: "10+", label: "Technologies" },
 ]
 

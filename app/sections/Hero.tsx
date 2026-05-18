@@ -113,7 +113,7 @@ export default function Hero() {
                 KodEx-SA
               </a>
               <span className="text-gray-800 text-xs">·</span>
-              <span className="text-gray-700 font-mono text-xs">&gt; 3 active roles</span>
+              <span className="text-gray-700 font-mono text-xs">&gt; 2 active roles, 1 past</span>
             </div>
           </div>
 
@@ -131,7 +131,7 @@ export default function Hero() {
               <Terminal className="w-full bg-[#080808] border border-green-500/25 font-mono shadow-[0_0_60px_rgba(74,222,128,0.1),inset_0_0_40px_rgba(0,0,0,0.6)] rounded-xl overflow-hidden">
                 <TypingAnimation className="text-green-400 text-sm font-semibold">$ whoami</TypingAnimation>
                 <AnimatedSpan className="text-emerald-300 text-sm pl-3 pb-1">
-                  &gt; Ashley Koketso Motsie
+                  &gt; Ashley K Motsie
                 </AnimatedSpan>
 
                 <TypingAnimation className="text-green-400 text-sm font-semibold mt-1">$ cat role.txt</TypingAnimation>
