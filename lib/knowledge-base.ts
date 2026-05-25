@@ -60,7 +60,7 @@ Portfolio:    ashleydevhub.vercel.app
 Status:       Actively seeking remote, hybrid, or on-site opportunities internationally
 Pen name:     Lawliet (poetry)
 YouTube:      @Ashley.Programmer
-Education:    NCV IT & Computer Sciences NQF Level 4 — Orbit TVET College, Rustenburg (2023)
+Education:    NCV IT & Computer Sciences NQF Level 4 — Orbit TVET College, Rustenburg (2022 - 2024)
               3+ years self-directed full-stack development experience
 `.trim()
 
