@@ -1,7 +1,8 @@
 "use client"
 
 import { useRef, useEffect, useCallback, useState } from "react"
-import { useChat } from "@ai-sdk/react"
+import { useChat, Chat } from "@ai-sdk/react"
+import { DefaultChatTransport } from "ai"
 import {
   MessageCircle, X, Send, Bot, User,
   RotateCcw, ChevronRight, Terminal, Maximize2, Minimize2,
@@ -127,15 +128,15 @@ function TrafficLight({ color, symbol, onClick, title, className }: {
 
 function StatusDot({ status }: { status: "ready" | "streaming" | "submitted" | "error" }) {
   const cfg = {
-    ready:     { color: "bg-green-600", pulse: false, label: "ready" },
-    streaming: { color: "bg-green-500", pulse: true,  label: "streaming" },
+    ready:     { color: "bg-green-500", pulse: false, label: "ready" },
+    streaming: { color: "bg-green-400", pulse: true,  label: "streaming" },
     submitted: { color: "bg-yellow-400", pulse: true, label: "thinking" },
     error:     { color: "bg-red-500",   pulse: false, label: "error" },
   }[status]
   return (
     <span className="inline-flex items-center gap-1.5">
       <span className={cn("w-1.5 h-1.5 rounded-full inline-block", cfg.color, cfg.pulse && "animate-pulse")} />
-      <span className="font-mono text-[1px] text-gray-500">{cfg.label}</span>
+      <span className="font-mono text-[9px] text-gray-600">{cfg.label}</span>
     </span>
   )
 }
@@ -165,18 +166,21 @@ export default function ChatBot() {
 
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef  = useRef<HTMLTextAreaElement>(null)
+  const openRef   = useRef(false)
 
-  const { messages, sendMessage, stop, setMessages, status } = useChat({
-    api: "/api/chat",
-    initialMessages: [{
+  const [chat] = useState(() => new Chat({
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    messages: [{
       id: "welcome",
       role: "assistant",
       parts: [{ type: "text", text: WELCOME }],
     }],
     onFinish() {
-      if (!open) setUnread((n) => n + 1)
+      if (!openRef.current) setUnread((n) => n + 1)
     },
-  })
+  }))
+
+  const { messages, sendMessage, stop, setMessages, status } = useChat({ chat })
 
   const isLoading = status === "streaming" || status === "submitted"
   const dotStatus = status === "streaming" ? "streaming"
@@ -188,6 +192,7 @@ export default function ChatBot() {
   }, [])
 
   useEffect(() => {
+    openRef.current = open
     if (open) {
       setUnread(0)
       setTimeout(scrollBottom, 80)
@@ -305,16 +310,16 @@ export default function ChatBot() {
 
             {/* Traffic lights */}
             <div className="flex items-center gap-[6px] flex-shrink-0">
-              <TrafficLight color="red"    symbol="✕" onClick={() => setOpen(false)} title="Close" />
-              <TrafficLight color="yellow" symbol="—" onClick={() => setMinimised((m) => !m)} title={minimised ? "Expand" : "Minimise"} />
-              <TrafficLight color="green"  symbol={maximised ? "" : ""} onClick={() => { setMaximised((m) => !m); setMinimised(false) }} title={maximised ? "Restore" : "Maximise"} />
+              <TrafficLight color="red"    symbol="✕" onClick={() => setOpen(false)}                     title="Close" />
+              <TrafficLight color="yellow" symbol="—" onClick={() => setMinimised((m) => !m)}             title={minimised ? "Expand" : "Minimise"} />
+              <TrafficLight color="green"  symbol={maximised ? "⊡" : "⊞"} onClick={() => { setMaximised((m) => !m); setMinimised(false) }} title={maximised ? "Restore" : "Maximise"} />
             </div>
 
             {/* Title — drag handle feel */}
             <div className="flex-1 flex items-center justify-center gap-2 min-w-0">
               <Terminal className="w-3 h-3 text-green-600/80 flex-shrink-0" />
-              <span className="font-mono text-[10px] text-gray-400 truncate tracking-wide">
-                smith<span className="text-green-800">@</span>ashley-dev<span className="text-gray-500">:~$</span>
+              <span className="font-mono text-[10px] text-gray-600 truncate tracking-wide">
+                smith<span className="text-green-800">@</span>ashley-dev<span className="text-gray-700">:~$</span>
               </span>
               {/* Live status pill */}
               <span className={cn(
@@ -513,10 +518,10 @@ export default function ChatBot() {
               {/* Footer */}
               <div className="flex items-center justify-between mt-1.5 px-0.5">
                 <StatusDot status={dotStatus} />
-                <span className="font-mono text-[10px] text-white-800 hidden sm:block">
-                  shift+↵ newline · esc close · Red dot - close
+                <span className="font-mono text-[8px] text-gray-800 hidden sm:block">
+                  shift+↵ newline · esc close
                 </span>
-                <span className="font-mono text-[10px] text-white-800 sm:hidden">
+                <span className="font-mono text-[8px] text-gray-800 sm:hidden">
                   shift+↵ newline
                 </span>
               </div>
