@@ -15,12 +15,10 @@ export const env = {
   // Chatbot (Groq)
   GROQ_API_KEY: process.env.GROQ_API_KEY ?? "",
 
-  // Contact form email (Nodemailer via SMTP - Gmail, etc.)
-  SMTP_HOST: process.env.SMTP_HOST ?? "",
-  SMTP_PORT: Number(process.env.SMTP_PORT ?? 587),
-  SMTP_USER: process.env.SMTP_USER ?? "",
-  SMTP_PASS: process.env.SMTP_PASS ?? "",
-  CONTACT_TO_EMAIL: process.env.CONTACT_TO_EMAIL ?? process.env.SMTP_USER ?? "",
+  // Contact form email (Resend - works over HTTPS, not blocked on Render's free tier
+  // the way raw SMTP is)
+  RESEND_API_KEY: process.env.RESEND_API_KEY ?? "",
+  CONTACT_TO_EMAIL: process.env.CONTACT_TO_EMAIL ?? "",
 
   // Optional persistence (Supabase) - leave blank to run with no DB
   SUPABASE_URL: process.env.SUPABASE_URL ?? "",
@@ -31,5 +29,5 @@ export const env = {
 };
 
 export const hasGroq = Boolean(env.GROQ_API_KEY);
-export const hasEmail = Boolean(env.SMTP_HOST && env.SMTP_USER && env.SMTP_PASS);
+export const hasEmail = Boolean(env.RESEND_API_KEY && env.CONTACT_TO_EMAIL);
 export const hasSupabase = Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY);

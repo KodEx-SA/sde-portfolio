@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { mailer } from "../lib/mailer";
+import { resend } from "../lib/mailer";
 import { supabase } from "../lib/supabase";
 import { env, hasEmail } from "../config/env";
 
@@ -10,7 +10,7 @@ interface ContactBody {
   email?: string;
   subject?: string;
   message?: string;
-  // Honeypot field - real visitors never fill this in.
+  // Honeypot field — real visitors never fill this in.
   // Make sure the frontend includes a hidden input named "company" that bots tend to fill.
   company?: string;
 }
@@ -21,7 +21,7 @@ contactRouter.post("/", async (req: Request, res: Response) => {
   const body: ContactBody = req.body ?? {};
   const { name, email, subject, message, company } = body;
 
-  // Honeypot - silently accept but do nothing.
+  // Honeypot — silently accept but do nothing.
   if (company) {
     res.status(200).json({ ok: true });
     return;
@@ -37,14 +37,14 @@ contactRouter.post("/", async (req: Request, res: Response) => {
     return;
   }
 
-  if (!hasEmail || !mailer) {
-    res.status(503).json({ error: "Contact form isn't configured yet (missing SMTP credentials)." });
+  if (!hasEmail || !resend) {
+    res.status(503).json({ error: "Contact form isn't configured yet (missing RESEND_API_KEY)." });
     return;
   }
 
   try {
-    await mailer.sendMail({
-      from: `"Portfolio Contact Form" <${env.SMTP_USER}>`,
+    const { error } = await resend.emails.send({
+      from: "Portfolio Contact Form <onboarding@resend.dev>",
       to: env.CONTACT_TO_EMAIL,
       replyTo: email.trim(),
       subject: `[Portfolio] ${subject.trim()}`,
@@ -55,6 +55,10 @@ contactRouter.post("/", async (req: Request, res: Response) => {
         <p style="white-space:pre-wrap">${escapeHtml(message.trim())}</p>
       `,
     });
+
+    if (error) {
+      throw error;
+    }
 
     if (supabase) {
       await supabase.from("contact_submissions").insert({
