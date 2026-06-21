@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils"
 // =================================== Constants ===================================
 
 const WELCOME =
-  "Initialising Smith v1.0 — portfolio assistant.\n\n> Connected to Ashley's knowledge base.\n> Ready. Ask me anything or pick a shortcut below."
+  "Initialising Smith v1.0 - portfolio assistant.\n\n> Connected to Ashley's knowledge base.\n> Ready. Ask me anything or pick a shortcut below."
 
 const SUGGESTIONS = [
   "What has Ashley built?",
@@ -57,7 +57,10 @@ function NavLink({ label, anchor, onNavigate }: {
 
 function ParsedMessage({ content, onNavigate }: { content: string | undefined; onNavigate: () => void }) {
   const text = content ?? ""
-  const NAV_RE = /\[→\s*([^\]]+)\]\(([^)]+)\)/g
+  // Arrow is optional — the model doesn't always include it, but any
+  // [Label](#anchor) markdown link pointing at an in-page anchor should
+  // still render as a clickable nav button.
+  const NAV_RE = /\[(?:→\s*)?([^\]]+)\]\(\s*(#[^)\s]+)\s*\)/g
   const nodes: React.ReactNode[] = []
   let last = 0
   let m: RegExpExecArray | null
@@ -535,7 +538,7 @@ export default function ChatBot() {
       <style jsx global>{`
         @keyframes blink {
           0%, 100% { opacity: 1; }
-          50%       { opacity: 0; }
+          50% { opacity: 0; }
         }
       `}</style>
     </>
