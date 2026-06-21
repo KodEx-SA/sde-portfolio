@@ -17,6 +17,13 @@ dns.setDefaultResultOrder("ipv4first");
 
 const app = express();
 
+// Render (and most PaaS hosts) sit behind a reverse proxy, so the real
+// client IP arrives via X-Forwarded-For. Without this, express-rate-limit
+// throws on every request trying to validate that header, breaking requests
+// entirely. `1` trusts exactly one hop (Render's own proxy) — safe here
+// since we don't have any other proxy layer in front of it.
+app.set("trust proxy", 1);
+
 app.use(helmet());
 app.use(
   cors({
