@@ -38,11 +38,10 @@ app.use("/api/chat", chatLimiter, chatRouter);
 app.use("/api/contact", contactLimiter, contactRouter);
 app.use("/api/analytics", analyticsLimiter, analyticsRouter);
 
-app.use((_req, res) => {
-  res.status(404).json({ error: "Not found." });
+app.use((_req, res) => { // 404 for any unknown routes
+  res.status(404).json({ error: "Not found." }); // Don't leak any info about available routes or methods.
 });
 
-app.listen(env.PORT, () => {
-  console.log(`ashleydevhub-api listening on :${env.PORT} (${env.NODE_ENV})`);
-  console.log(`Allowed origins: ${env.ALLOWED_ORIGINS.join(", ")}`);
+app.listen(env.PORT, () => { // Don't log anything here that might contain sensitive info.
+  console.log(`Server is running on port ${env.PORT}`);
 });
