@@ -5,13 +5,13 @@ import { MapPin, Briefcase, GraduationCap, Code2 } from "lucide-react"
 
 const roles = [
   // { title: "AI Software Developer", company: "AI Global Networks", type: "Full-time" },
-  { title: "Junior Software Developer & IT Technician", company: "Eullafied Tech Solutions", type: "12 months contract" },
+  // { title: "Junior Software Developer & IT Technician", company: "Eullafied Tech Solutions", type: "12 months contract" },
   { title: "Web Developer & Graphic Designer", company: "Maps Media Productions", type: "Full-time" },
 ]
 
 const facts = [
   { icon: MapPin, label: "Location", value: "Rustenburg, North West, ZA" },
-  { icon: Briefcase, label: "Active Roles", value: "2 concurrent positions, 1 past position" },
+  { icon: Briefcase, label: "Active Roles", value: "1 position, 2 past positions" },
   { icon: GraduationCap, label: "Education", value: "NCV IT & Computer Sciences(NQF Level 4) - Orbit TVET College" },
   { icon: Code2, label: "GitHub", value: "github.com/KodEx-SA" },
 ]
