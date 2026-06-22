@@ -6,7 +6,7 @@ import { MapPin, Briefcase, GraduationCap, Code2 } from "lucide-react"
 const roles = [
   // { title: "AI Software Developer", company: "AI Global Networks", type: "Full-time" },
   // { title: "Junior Software Developer & IT Technician", company: "Eullafied Tech Solutions", type: "12 months contract" },
-  { title: "Web Developer & Graphic Designer", company: "Maps Media Productions", type: "Full-time" },
+  { title: "Web Developer & Graphic Designer", company: "Maps Media Productions", type: "Freelance" },
 ]
 
 const facts = [
