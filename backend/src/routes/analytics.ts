@@ -10,8 +10,6 @@ interface TrackBody {
   meta?: Record<string, unknown>;
 }
 
-// POST /api/analytics/track - fire-and-forget pageview/event logging.
-// No-ops quietly if Supabase isn't configured, so the frontend never breaks.
 analyticsRouter.post("/track", async (req: Request, res: Response) => {
   const { event, path, meta }: TrackBody = req.body ?? {};
 
@@ -34,13 +32,10 @@ analyticsRouter.post("/track", async (req: Request, res: Response) => {
     res.status(202).json({ ok: true, persisted: true });
   } catch (err) {
     console.error("[analytics] track error:", err);
-    // Never fail loudly on analytics - it shouldn't break the visitor's experience.
     res.status(202).json({ ok: true, persisted: false });
   }
 });
 
-// GET /api/analytics/stats - simple dashboard for Ashley only.
-// Protect with: Authorization: Bearer <ADMIN_TOKEN>
 analyticsRouter.get("/stats", async (req: Request, res: Response) => {
   const authHeader = req.headers.authorization ?? "";
   const token = authHeader.replace(/^Bearer\s+/i, "");
