@@ -12,7 +12,7 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center px-6 md:px-20 py-24 overflow-hidden"
     >
-      {/* Grid */}
+      {/*  Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.04)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       {/* Meteors */}
@@ -117,7 +117,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — Terminal */}
+          {/* Right - Terminal */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative w-full max-w-sm sm:max-w-md">
               {/* Corner brackets */}
