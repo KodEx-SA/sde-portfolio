@@ -72,7 +72,7 @@ export default function Contact() {
 
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 text-green-500 text-xs font-mono w-fit">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -86,7 +86,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-          {/* Left */}
+          {/* ======================== Left ======================== */}
           <div className="flex flex-col gap-8">
             <div className="space-y-3">
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -98,7 +98,7 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Contact cards */}
+            {/* ======================== Contact cards ======================== */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {contactInfo.map(({ icon: Icon, label, value, href, hint }) => (
                 <div
@@ -130,7 +130,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — Form */}
+          {/* ======================== Right - Form ======================== */}
           <div className="relative">
             <div className="absolute -inset-3 pointer-events-none">
               <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-green-500/25" />
@@ -160,8 +160,8 @@ export default function Contact() {
               >
                 <p className="text-green-600 font-mono text-xs">$ ./send_message.sh</p>
 
-                {/* Honeypot — hidden from real visitors, bots tend to fill it in */}
-                <input
+                {/* ======================== Honeypot hidden from real visitors, bots tend to fill it in ======================== */}
+                {/* <input
                   type="text"
                   name="company"
                   tabIndex={-1}
@@ -170,7 +170,7 @@ export default function Contact() {
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
                   className="absolute opacity-0 pointer-events-none -z-10 h-0 w-0"
                   aria-hidden="true"
-                />
+                /> */}
 
                 {error && (
                   <p className="text-red-400 font-mono text-[11px] border border-red-500/20 bg-red-500/5 rounded-lg px-3 py-2">
