@@ -23,7 +23,7 @@ export default function About() {
 
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 text-green-500 text-xs font-mono w-fit">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -37,10 +37,10 @@ export default function About() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-16 items-start">
 
-          {/* Left */}
+          {/* ======================== Left ======================== */}
           <div className="flex flex-col gap-8">
 
-            {/* Photo */}
+            {/* ======================== Photo ======================== */}
             <div className="relative w-fit">
               <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-green-500/20 to-transparent blur" />
               <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border border-green-500/20">
@@ -55,7 +55,7 @@ export default function About() {
               <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-green-500/50" />
             </div>
 
-            {/* Facts */}
+            {/* ======================== Facts ======================== */}
             <div className="flex flex-col gap-3">
               {facts.map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-start gap-3 group">
@@ -71,10 +71,10 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right */}
+          {/* ======================== Right ======================== */}
           <div className="flex flex-col gap-8">
 
-            {/* Bio */}
+            {/* ======================== Bio ======================== */}
             <div className="space-y-4">
               <p className="text-gray-400 text-sm leading-relaxed">
                 I&apos;m a Software Developer and AI Engineer based in Rustenburg, South Africa. Currently
@@ -100,7 +100,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Active roles */}
+            {/* ======================== Active roles ======================== */}
             <div>
               <p className="text-green-600 font-mono text-[10px] mb-4">$ cat active_roles.txt</p>
               <div className="flex flex-col gap-2.5">
