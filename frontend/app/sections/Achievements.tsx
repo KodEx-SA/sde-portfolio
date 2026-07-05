@@ -49,7 +49,7 @@ export default function Achievements() {
 
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 text-green-500 text-xs font-mono w-fit">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -61,7 +61,7 @@ export default function Achievements() {
           <div className="w-10 h-0.5 bg-green-500/50" />
         </div>
 
-        {/* Grid */}
+        {/* ======================== Grid ======================== */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {certificates.map((cert, i) => (
             <button
@@ -69,7 +69,7 @@ export default function Achievements() {
               onClick={() => setSelected(cert)}
               className="group text-left rounded-xl border border-green-500/10 bg-[#080808] hover:border-green-500/30 transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-green-500/30 hover:-translate-y-1"
             >
-              {/* Image */}
+              {/* ======================== Image ======================== */}
               <div className="relative h-44 w-full overflow-hidden">
                 <Image
                   src={cert.image}
@@ -77,17 +77,17 @@ export default function Achievements() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                {/* Gradient overlay */}
+                {/* ======================== Gradient overlay ======================== */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/30 to-transparent" />
 
-                {/* Hover zoom icon */}
+                {/* ======================== Hover zoom icon ======================== */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-green-500/30 flex items-center justify-center">
                     <ZoomIn className="w-4 h-4 text-green-400" />
                   </div>
                 </div>
 
-                {/* Award badge */}
+                {/* ======================== Award badge ======================== */}
                 <div className="absolute top-2.5 right-2.5">
                   <div className="w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-green-500/30 flex items-center justify-center">
                     <Award className="w-3.5 h-3.5 text-green-400" />
@@ -95,7 +95,7 @@ export default function Achievements() {
                 </div>
               </div>
 
-              {/* Content */}
+              {/* ======================== Content ======================== */}
               <div className="p-4">
                 <p className="text-green-700 font-mono text-[9px] mb-1.5">{cert.year} · {cert.issuer}</p>
                 <h3 className="text-white font-mono font-bold text-xs group-hover:text-green-400 transition-colors duration-200 leading-snug mb-2">
@@ -105,7 +105,7 @@ export default function Achievements() {
                   {cert.description}
                 </p>
                 <p className="text-green-800 font-mono text-[9px] mt-3 group-hover:text-green-600 transition-colors">
-                  click to enlarge →
+                  click to enlarge
                 </p>
               </div>
             </button>
@@ -113,7 +113,7 @@ export default function Achievements() {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* ======================== Lightbox ======================== */}
       {selected && (
         <div
           className="fixed inset-0 z-50 bg-black/92 backdrop-blur-xl flex items-center justify-center p-6"
@@ -123,7 +123,7 @@ export default function Achievements() {
             className="relative max-w-xl w-full bg-[#080808] rounded-2xl border border-green-500/20 overflow-hidden shadow-[0_0_80px_rgba(74,222,128,0.12)]"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close */}
+            {/* ======================== Close ======================== */}
             <button
               onClick={() => setSelected(null)}
               className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/70 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all duration-200"
@@ -131,7 +131,7 @@ export default function Achievements() {
               <X className="w-3.5 h-3.5" />
             </button>
 
-            {/* Image */}
+            {/*  Image ======================== */}
             <div className="relative h-64 sm:h-80 w-full bg-black">
               <Image
                 src={selected.image}
@@ -141,7 +141,7 @@ export default function Achievements() {
               />
             </div>
 
-            {/* Info */}
+            {/* ======================== Info ======================== */}
             <div className="p-5 border-t border-green-500/10">
               <p className="text-green-600 font-mono text-[10px] mb-1.5">{selected.issuer} · {selected.year}</p>
               <h3 className="text-white font-mono font-bold text-base">{selected.title}</h3>
