@@ -109,7 +109,7 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 text-green-500 text-xs font-mono w-fit">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -121,14 +121,14 @@ export default function Projects() {
           <div className="w-10 h-0.5 bg-green-500/50" />
         </div>
 
-        {/* ── FEATURED — large horizontal cards ── */}
+        {/* ======================== FEATURED ======================== */}
         <div className="flex flex-col gap-5 mb-10">
           {featured.map((project, i) => (
             <div
               key={i}
               className="group grid grid-cols-1 md:grid-cols-2 rounded-xl border border-green-500/10 bg-[#080808] overflow-hidden hover:border-green-500/30 transition-all duration-400 hover:shadow-[0_0_40px_rgba(74,222,128,0.06)]"
             >
-              {/* Image panel */}
+              {/* ======================== Image panel ======================== */}
               <div className={`h-56 md:h-auto relative overflow-hidden flex-shrink-0 ${i % 2 !== 0 ? "md:order-last" : ""}`}>
                 {project.image ? (
                   <>
@@ -138,7 +138,7 @@ export default function Projects() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-600 ease-out"
                     />
-                    {/* Side fade into content */}
+                    {/* ======================== Side fade into content ======================== */}
                     <div className={`absolute inset-y-0 w-28 z-10 ${
                       i % 2 !== 0
                         ? "left-0 bg-gradient-to-r from-[#080808] to-transparent"
@@ -154,9 +154,9 @@ export default function Projects() {
                 )}
               </div>
 
-              {/* Content panel */}
+              {/* ======================== Content panel ======================== */}
               <div className="p-6 md:p-8 lg:p-10 flex flex-col gap-4 justify-center">
-                {/* Meta */}
+                {/* ======================== Meta ======================== */}
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="inline-flex items-center gap-1 text-[9px] font-mono px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-500">
                     <span className="w-1 h-1 rounded-full bg-green-400 animate-pulse" />
@@ -169,17 +169,17 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Title */}
+                {/* ======================== Title ======================== */}
                 <h3 className="text-white font-mono font-bold text-xl md:text-2xl group-hover:text-green-400 transition-colors duration-200 leading-snug">
                   {project.title}
                 </h3>
 
-                {/* Animated underline */}
+                {/* ======================== Animated underline ======================== */}
                 <div className="h-px w-8 group-hover:w-full bg-gradient-to-r from-green-500/60 to-transparent transition-all duration-500 ease-out" />
 
                 <p className="text-gray-500 text-sm leading-relaxed">{project.description}</p>
 
-                {/* Stack */}
+                {/* ======================== Stack ======================== */}
                 <div className="flex flex-wrap gap-1.5">
                   {project.stack.map((s) => (
                     <span key={s} className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-white/3 text-gray-500 border border-white/6 hover:border-green-500/20 hover:text-gray-400 transition-colors duration-200">
@@ -188,7 +188,7 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Buttons */}
+                {/* ======================== Buttons ======================== */}
                 <div className="flex gap-3 pt-1">
                   {project.live && (
                     <a
@@ -217,7 +217,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* ── REST — compact cards with thumbnails ── */}
+        {/* ======================== REST - compact cards with thumbnails ======================== */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {rest.map((project, i) => (
             <div
@@ -246,14 +246,14 @@ export default function Projects() {
                   </div>
                 )}
 
-                {/* Year badge */}
+                {/* ======================== Year badge ======================== */}
                 <div className="absolute top-2 left-2 z-10">
                   <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-green-500/20 text-green-600">
                     {project.year}
                   </span>
                 </div>
 
-                {/* Live indicator */}
+                {/* ======================== Live indicator ======================== */}
                 <div className="absolute top-2 right-2 z-10">
                   <span className="flex items-center gap-1 text-[8px] font-mono px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-green-500/20 text-green-500">
                     <span className="w-1 h-1 rounded-full bg-green-400 animate-pulse" />
@@ -262,9 +262,9 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Content */}
+              {/* ======================== Content ======================== */}
               <div className="flex flex-col gap-2.5 p-4 flex-1">
-                {/* Tags */}
+                {/* ======================== Tags ======================== */}
                 <div className="flex flex-wrap gap-1">
                   {project.tags.map((tag) => (
                     <span key={tag} className="text-[8px] font-mono px-1.5 py-0.5 rounded-full bg-green-500/8 border border-green-500/15 text-green-700">
@@ -273,17 +273,17 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Title */}
+                {/* ======================== Title ======================== */}
                 <h3 className="text-white font-mono font-bold text-xs group-hover:text-green-400 transition-colors duration-200 leading-snug">
                   {project.title}
                 </h3>
 
-                {/* Description */}
+                {/* ======================== Description ======================== */}
                 <p className="text-gray-700 text-[10px] leading-relaxed flex-1 line-clamp-3">
                   {project.description}
                 </p>
 
-                {/* Stack pills */}
+                {/* ======================== Stack pills ======================== */}
                 <div className="flex flex-wrap gap-1">
                   {project.stack.slice(0, 2).map((s) => (
                     <span key={s} className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-white/3 text-gray-700">
@@ -297,7 +297,7 @@ export default function Projects() {
                   )}
                 </div>
 
-                {/* Action links */}
+                {/* ======================== Action links ======================== */}
                 <div className="flex items-center gap-3 pt-2 border-t border-green-500/8">
                   {project.live && (
                     <a
@@ -325,7 +325,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* View all */}
+        {/* ======================== View all ======================== */}
         <div className="mt-10 flex justify-center">
           <a
             href="https://github.com/KodEx-SA"
