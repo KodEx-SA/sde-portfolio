@@ -63,13 +63,13 @@ export default function Experience() {
   return (
     <section id="experience" className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden">
 
-      {/* Background */}
+      {/* ======================== Background ======================== */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_50%,rgba(34,197,94,0.03),transparent)] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 text-green-500 text-xs font-mono w-fit">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -81,7 +81,7 @@ export default function Experience() {
           <div className="w-10 h-0.5 bg-green-500/50" />
         </div>
 
-        {/* Active roles badge */}
+        {/* ======================== Active roles badge ======================== */}
         <div className="flex items-center gap-3 mb-10">
           <p className="text-green-600 font-mono text-xs">$ echo $ACTIVE_ROLES</p>
           <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5">
@@ -90,9 +90,9 @@ export default function Experience() {
           </div>
         </div>
 
-        {/* Timeline */}
+        {/* ======================== Timeline ======================== */}
         <div className="relative">
-          {/* Vertical line */}
+          {/* ======================== Vertical line ======================== */}
           <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-green-500/40 via-green-500/20 to-transparent" />
 
           <div className="flex flex-col gap-4">
@@ -101,7 +101,7 @@ export default function Experience() {
 
               return (
                 <div key={i} className="relative pl-10 md:pl-16">
-                  {/* Timeline dot */}
+                  {/* ======================== Timeline dot ======================== */}
                   <div className="absolute left-2.5 md:left-4 top-5 flex flex-col items-center">
                     <div className={`w-3 h-3 rounded-full border-2 transition-colors duration-300 ${
                       exp.current
@@ -110,19 +110,19 @@ export default function Experience() {
                     }`} />
                   </div>
 
-                  {/* Card */}
+                  {/* ======================== Card ======================== */}
                   <div
                     className={`rounded-xl border bg-[#080808] transition-all duration-300 overflow-hidden ${
                       isOpen ? "border-green-500/25" : "border-green-500/10 hover:border-green-500/20"
                     }`}
                   >
-                    {/* Card header — always visible, clickable */}
+                    {/* ======================== Card header - always visible, clickable ======================== */}
                     <button
                       onClick={() => setExpanded(isOpen ? null : i)}
                       className="w-full text-left px-5 py-4 flex items-start justify-between gap-4 group"
                     >
                       <div className="flex flex-col gap-2 flex-1 min-w-0">
-                        {/* Role + current badge */}
+                        {/* ======================== Role + current badge ======================== */}
                         <div className="flex flex-wrap items-center gap-2">
                           <h3 className={`font-mono font-bold text-sm md:text-base transition-colors duration-200 ${
                             isOpen ? "text-green-400" : "text-white group-hover:text-green-400"
@@ -140,7 +140,7 @@ export default function Experience() {
                           </span>
                         </div>
 
-                        {/* Company + meta */}
+                        {/* ======================== Company + meta ======================== */}
                         <div className="flex flex-wrap items-center gap-3 text-[11px] font-mono text-gray-600">
                           <span className="flex items-center gap-1.5">
                             <Briefcase className="w-3 h-3 text-green-800" />
@@ -157,7 +157,7 @@ export default function Experience() {
                         </div>
                       </div>
 
-                      {/* Chevron */}
+                      {/* ======================== Chevron ======================== */}
                       <ChevronDown
                         className={`w-4 h-4 text-gray-600 flex-shrink-0 mt-1 transition-all duration-300 group-hover:text-green-500 ${
                           isOpen ? "rotate-180 text-green-500" : ""
@@ -165,7 +165,7 @@ export default function Experience() {
                       />
                     </button>
 
-                    {/* Expandable content */}
+                    {/* ======================== Expandable content ======================== */}
                     <div
                       className={`transition-all duration-400 ease-in-out ${
                         isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
@@ -173,12 +173,12 @@ export default function Experience() {
                     >
                       <div className="px-5 pb-5 flex flex-col gap-5 border-t border-green-500/8">
 
-                        {/* Description */}
+                        {/* ======================== Description ======================== */}
                         <p className="text-gray-300 text-sm leading-relaxed pt-4">
                           {exp.description}
                         </p>
 
-                        {/* Highlights */}
+                        {/* ======================== Highlights ======================== */}
                         <div>
                           <p className="text-green-400 font-mono text-[10px] mb-3">$ cat highlights.txt</p>
                           <ul className="flex flex-col gap-2">
@@ -191,7 +191,7 @@ export default function Experience() {
                           </ul>
                         </div>
 
-                        {/* Stack */}
+                        {/* ======================== Stack ======================== */}
                         <div>
                           <p className="text-green-700 font-mono text-[10px] mb-3">$ ls stack/</p>
                           <div className="flex flex-wrap gap-2">
