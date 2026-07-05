@@ -217,7 +217,7 @@ export default function GitHub({ username = USERNAME }) {
         const userData: GitHubUser = await userRes.json();
         if (cancelled) return;
 
-        // 2. Repos — public, non-fork, sorted by recently updated (preserves API order)
+        // 2. Repos - public, non-fork, sorted by recently updated
         let reposData: Repo[] = [];
         try {
           const reposRes = await fetch(
@@ -227,9 +227,7 @@ export default function GitHub({ username = USERNAME }) {
             const json: Repo[] = await reposRes.json();
             reposData = json.filter((r) => !r.fork).slice(0, 6);
           }
-        } catch {
-          /* silent */
-        }
+        } catch {/* silent */}
         if (cancelled) return;
 
         setUser(userData);
@@ -257,19 +255,19 @@ export default function GitHub({ username = USERNAME }) {
       id="github"
       className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden bg-[#040404]"
     >
-      {/* Grid texture */}
+      {/* ======================== Grid texture ======================== */}
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"
       />
-      {/* Glow */}
+      {/* ======================== Glow ======================== */}
       <div
         aria-hidden="true"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-green-500/3 blur-3xl pointer-events-none"
       />
 
       <div className="relative max-w-6xl mx-auto flex flex-col gap-14">
-        {/* ── Section header ── */}
+        {/* ======================== Section header ======================== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -291,7 +289,7 @@ export default function GitHub({ username = USERNAME }) {
               </p>
             </div>
 
-            {/* Profile pill */}
+            {/* ======================== Profile pill ======================== */}
             {user && (
               <a
                 href={`https://github.com/${username}`}
@@ -324,7 +322,7 @@ export default function GitHub({ username = USERNAME }) {
           </div>
         </motion.div>
 
-        {/* ── Skeleton ── */}
+        {/* ======================== Skeleton ======================== */}
         {loading && (
           <div className="flex flex-col gap-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -347,7 +345,7 @@ export default function GitHub({ username = USERNAME }) {
           </div>
         )}
 
-        {/* ── Error ── */}
+        {/* ======================== Error ======================== */}
         {!loading && error && (
           <div className="flex flex-col items-center justify-center py-20 gap-4 border border-green-500/10 rounded-2xl bg-[#0a0a0a]">
             <FaGithub className="w-8 h-8 text-gray-700" />
@@ -365,10 +363,10 @@ export default function GitHub({ username = USERNAME }) {
           </div>
         )}
 
-        {/* ── Main content ── */}
+        {/* ======================== Main content ======================== */}
         {!loading && !error && user && (
           <>
-            {/* Primary stat cards */}
+            {/* ======================== Primary stat cards ======================== */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -403,7 +401,7 @@ export default function GitHub({ username = USERNAME }) {
               />
             </motion.div>
 
-            {/* Secondary strip */}
+            {/* ======================== Secondary strip ======================== */}
             <div className="grid grid-cols-3 gap-3">
               {[
                 { icon: Flame, label: "Active Contributor", value: "2025" },
@@ -433,7 +431,7 @@ export default function GitHub({ username = USERNAME }) {
               ))}
             </div>
 
-            {/* Contribution graph */}
+            {/* ======================== Contribution graph ======================== */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -480,7 +478,7 @@ export default function GitHub({ username = USERNAME }) {
               </div>
             </motion.div>
 
-            {/* Repos */}
+            {/* ======================== Repos ======================== */}
             {repos.length > 0 && (
               <div className="flex flex-col gap-5">
                 <div className="flex items-center justify-between">
