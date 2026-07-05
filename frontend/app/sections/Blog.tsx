@@ -29,7 +29,7 @@ const POSTS: Post[] = [
     slug: "streaming-ai-chatbot-groq-nextjs",
     title: "Building a Streaming AI Chatbot with Groq & Next.js",
     excerpt:
-      "How I built Smith — a sub-second streaming chatbot using the Groq API, Next.js App Router server-sent events, and a hand-rolled ReadableStream. No SDK, no bloat.",
+      "How I built Smith - a sub-second streaming chatbot using the Groq API, Next.js App Router server-sent events, and a hand-rolled ReadableStream. No SDK, no bloat.",
     date: "2025-04-18",
     readTime: 7,
     tags: ["AI", "Next.js", "Groq", "Streaming"],
@@ -57,7 +57,7 @@ const POSTS: Post[] = [
   },
   {
     slug: "supabase-rls-multi-tenant",
-    title: "Supabase RLS for Multi-Tenant Apps — Property Manager Case Study",
+    title: "Supabase RLS for Multi-Tenant Apps - Property Manager Case Study",
     excerpt:
       "Real-world Row Level Security policies for a four-role property management platform: Super Admin, Property Manager, Tenant, and Maintenance Tech. Lessons from building it.",
     date: "2025-01-22",
@@ -79,7 +79,7 @@ const POSTS: Post[] = [
     slug: "groq-livekit-voice-assistant",
     title: "Debugging a LiveKit Voice Assistant with Groq + Deepgram",
     excerpt:
-      "Building Clare — an AI voice assistant — and the wild ride of swapping STT/TTS providers when OpenAI quotas ran dry. Real issues, real fixes.",
+      "Building Clare - an AI voice assistant — and the wild ride of swapping STT/TTS providers when OpenAI quotas ran dry. Real issues, real fixes.",
     date: "2024-11-11",
     readTime: 10,
     tags: ["AI", "LiveKit", "Deepgram", "Voice"],
@@ -129,7 +129,7 @@ function PostCard({ post }: { post: Post }) {
 
   return (
     <article className="group relative flex flex-col gap-4 p-5 rounded-2xl border border-green-500/10 bg-[#0a0a0a] hover:border-green-500/25 hover:bg-[#0f0f0f] transition-all duration-300 hover:shadow-[0_0_32px_rgba(74,222,128,0.04)] cursor-pointer">
-      {/* Terminal window dots */}
+      {/* ======================== Terminal window dots ======================== */}
       <div className="flex items-center gap-1.5">
         <span className="w-2 h-2 rounded-full bg-red-500/50" />
         <span className="w-2 h-2 rounded-full bg-yellow-500/50" />
@@ -138,7 +138,7 @@ function PostCard({ post }: { post: Post }) {
           {post.slug}.mdx
         </span>
 
-        {/* Category badge — pushed right */}
+        {/* ======================== Category badge - pushed right ======================== */}
         <span
           className={`ml-auto text-[9px] font-mono font-semibold px-2 py-0.5 rounded-full border ${catClass}`}
         >
@@ -146,7 +146,7 @@ function PostCard({ post }: { post: Post }) {
         </span>
       </div>
 
-      {/* Title */}
+      {/* ======================== Title ======================== */}
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-mono text-sm font-bold text-gray-200 group-hover:text-green-300 transition-colors leading-snug">
           <span className="text-green-600 mr-1.5 text-xs select-none">›</span>
@@ -155,12 +155,12 @@ function PostCard({ post }: { post: Post }) {
         <ArrowUpRight className="w-3.5 h-3.5 text-gray-700 group-hover:text-green-500 transition-colors flex-shrink-0 mt-0.5" />
       </div>
 
-      {/* Excerpt */}
+      {/* ======================== Excerpt ======================== */}
       <p className="font-mono text-[11px] text-gray-600 leading-relaxed line-clamp-3 flex-1">
         {post.excerpt}
       </p>
 
-      {/* Tags */}
+      {/* ======================== Tags ======================== */}
       <div className="flex flex-wrap gap-1.5">
         {post.tags.map((tag) => (
           <span
@@ -173,7 +173,7 @@ function PostCard({ post }: { post: Post }) {
         ))}
       </div>
 
-      {/* Footer */}
+      {/* ======================== Footer ======================== */}
       <div className="flex items-center gap-3 pt-2 border-t border-white/5">
         <span className="flex items-center gap-1 text-[10px] text-gray-600 font-mono">
           <Calendar className="w-3 h-3" />
@@ -202,14 +202,14 @@ export default function Blog() {
 
   return (
     <section id="blog" className="relative py-24 bg-[#050505] overflow-hidden">
-      {/* Subtle dot grid */}
+      {/* ======================== Subtle dot grid ======================== */}
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[radial-gradient(rgba(74,222,128,0.04)_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none"
       />
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-10 flex flex-col gap-12">
-        {/* ── Section header ── */}
+        {/* ======================== Section header ======================== */}
         <div className="flex flex-col gap-4">
           <SectionLabel>dev.blog</SectionLabel>
           <div className="flex items-end justify-between flex-wrap gap-4">
@@ -218,7 +218,7 @@ export default function Blog() {
                 Dev <span className="text-green-400">Notes</span>
               </h2>
               <p className="text-gray-600 font-mono text-sm mt-2">
-                <span className="text-green-700">$</span> ls -la ./writings —
+                <span className="text-green-700">$</span> ls -la ./writings -
                 tutorials, project logs & deep dives
               </p>
             </div>
@@ -231,7 +231,7 @@ export default function Blog() {
           </div>
         </div>
 
-        {/* ── Category filter ── */}
+        {/* ======================== Category filter ======================== */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-mono text-[10px] text-gray-700 mr-1">
@@ -276,7 +276,7 @@ export default function Blog() {
           </div>
         </div>
 
-        {/* ── Posts grid ── */}
+        {/* ======================== Posts grid ======================== */}
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((post) => (
@@ -301,7 +301,7 @@ export default function Blog() {
           </div>
         )}
 
-        {/* ── Coming soon notice ── */}
+        {/* ======================== Coming soon notice ======================== */}
         <div className="flex items-center gap-4 px-5 py-4 rounded-xl border border-green-500/10 bg-[#0a0a0a]">
           <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0">
             <FileText className="w-4 h-4 text-green-500" />
@@ -311,7 +311,7 @@ export default function Blog() {
               More posts coming soon
             </p>
             <p className="font-mono text-[10px] text-gray-700 mt-0.5">
-              Currently shipping — will publish more notes as projects wrap up.
+              Currently shipping - will publish more notes as projects wrap up.
             </p>
           </div>
           <span className="ml-auto flex items-center gap-1.5 text-[10px] font-mono text-green-700">
