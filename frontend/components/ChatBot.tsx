@@ -56,7 +56,7 @@ function NavLink({ label, anchor, onNavigate }: {
 }
 
 function ParsedMessage({ content, onNavigate }: { content: string | undefined; onNavigate: () => void }) {
-  const text = content ?? ""\
+  const text = content ?? ""
   const NAV_RE = /\[(?:→\s*)?([^\]]+)\]\(\s*(#[^)\s]+)\s*\)/g
   const nodes: React.ReactNode[] = []
   let last = 0
