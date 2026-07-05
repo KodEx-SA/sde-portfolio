@@ -56,10 +56,7 @@ function NavLink({ label, anchor, onNavigate }: {
 }
 
 function ParsedMessage({ content, onNavigate }: { content: string | undefined; onNavigate: () => void }) {
-  const text = content ?? ""
-  // Arrow is optional — the model doesn't always include it, but any
-  // [Label](#anchor) markdown link pointing at an in-page anchor should
-  // still render as a clickable nav button.
+  const text = content ?? ""\
   const NAV_RE = /\[(?:→\s*)?([^\]]+)\]\(\s*(#[^)\s]+)\s*\)/g
   const nodes: React.ReactNode[] = []
   let last = 0
@@ -268,7 +265,7 @@ export default function ChatBot() {
 
   return (
     <>
-      {/* ── FAB toggle ── */}
+      {/* ======================== FAB toggle ======================== */}
       <button
         onClick={() => { setOpen((o) => !o); setUnread(0) }}
         aria-label={open ? "Close Smith" : "Open Smith"}
@@ -295,7 +292,7 @@ export default function ChatBot() {
         )}
       </button>
 
-      {/* ── Mobile backdrop ── */}
+      {/* ======================== Mobile backdrop ======================== */}
       {open && (
         <div
           aria-hidden
@@ -304,29 +301,29 @@ export default function ChatBot() {
         />
       )}
 
-      {/* ── Terminal window ── */}
+      {/* ======================== Terminal window ======================== */}
       {open && (
         <div className={windowCls}>
           <ScanLines />
 
-          {/* ── Title bar ── */}
+          {/* ======================== Title bar ======================== */}
           <div className="relative z-10 flex items-center gap-3 px-3.5 py-2.5 border-b border-green-500/12 bg-[#111]/90 backdrop-blur-sm flex-shrink-0 select-none"
             style={{ minHeight: "44px" }}>
 
-            {/* Traffic lights */}
+            {/* ======================== Traffic lights ======================== */}
             <div className="flex items-center gap-[6px] flex-shrink-0">
               <TrafficLight color="red" symbol="✕" onClick={() => setOpen(false)} title="Close" />
               <TrafficLight color="yellow" symbol="—" onClick={() => setMinimised((m) => !m)} title={minimised ? "Expand" : "Minimise"} />
               <TrafficLight color="green" symbol={maximised ? "⊡" : "⊞"} onClick={() => { setMaximised((m) => !m); setMinimised(false) }} title={maximised ? "Restore" : "Maximise"} />
             </div>
 
-            {/* Title — drag handle feel */}
+            {/* ======================== Title ======================== */}
             <div className="flex-1 flex items-center justify-center gap-2 min-w-0">
               <Terminal className="w-3 h-3 text-green-600/80 flex-shrink-0" />
               <span className="font-mono text-[10px] text-gray-600 truncate tracking-wide">
                 smith<span className="text-green-800">@</span>ashley-dev<span className="text-gray-700">:~$</span>
               </span>
-              {/* Live status pill */}
+              {/* ======================== Live status pill ======================== */}
               <span className={cn(
                 "hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-sm",
                 "font-mono text-[8px] uppercase tracking-widest",
@@ -339,7 +336,7 @@ export default function ChatBot() {
               </span>
             </div>
 
-            {/* Right: reset */}
+            {/* ======================== Right: reset ======================== */}
             <button
               onClick={reset}
               title="New session"
@@ -349,12 +346,12 @@ export default function ChatBot() {
             </button>
           </div>
 
-          {/* ── Messages area ── */}
+          {/* ======================== Messages area ======================== */}
           {!minimised && (
             <div className="relative z-10 flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-3 scroll-smooth min-h-0"
               style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(74,222,128,0.15) transparent" }}>
 
-              {/* Boot header */}
+              {/* ======================== Boot header ======================== */}
               <div className="font-mono text-[9px] pb-2 border-b border-green-500/8 flex items-center justify-between">
                 <span>
                   <span className="text-green-800">smith</span>
@@ -377,7 +374,7 @@ export default function ChatBot() {
                     !isBot && "items-end",
                   )}>
 
-                    {/* Role badge */}
+                    {/* ======================== Role badge ======================== */}
                     <div className={cn(
                       "flex items-center gap-1.5",
                       !isBot && "flex-row-reverse",
@@ -400,7 +397,7 @@ export default function ChatBot() {
                       </span>
                     </div>
 
-                    {/* Bubble */}
+                    {/* ======================== Bubble ======================== */}
                     <div className={cn(
                       "font-mono text-[12px] leading-[1.65] px-3 py-2 rounded-xl max-w-[88%]",
                       isBot
@@ -426,7 +423,7 @@ export default function ChatBot() {
                 )
               })}
 
-              {/* Suggestions */}
+              {/* ======================== Suggestions ======================== */}
               {pristine && !isLoading && (
                 <div className="flex flex-wrap gap-1.5 pt-1 pl-6">
                   {SUGGESTIONS.map((s) => (
@@ -450,14 +447,14 @@ export default function ChatBot() {
             </div>
           )}
 
-          {/* ── Input ── */}
+          {/* ======================== Input ======================== */}
           {!minimised && (
             <div className="relative z-10 border-t border-green-500/10 bg-[#0f0f0f]/95 px-3 pb-3 pt-2 flex-shrink-0">
               <form
                 onSubmit={(e) => { e.preventDefault(); handleSend() }}
                 className="flex items-end gap-2"
               >
-                {/* prompt symbol */}
+                {/* ======================== prompt symbol ======================== */}
                 <span className="font-mono text-green-700 text-[13px] pb-[9px] flex-shrink-0 select-none leading-none">
                   ❯
                 </span>
@@ -483,7 +480,7 @@ export default function ChatBot() {
                   style={{ minHeight: "38px", maxHeight: "100px" }}
                 />
 
-                {/* Stop / Send */}
+                {/* ======================== Stop / Send ======================== */}
                 {isLoading ? (
                   <button
                     type="button"
@@ -520,7 +517,7 @@ export default function ChatBot() {
                 )}
               </form>
 
-              {/* Footer */}
+              {/* ======================== Footer ======================== */}
               <div className="flex items-center justify-between mt-1.5 px-0.5">
                 <StatusDot status={dotStatus} />
                 <span className="font-mono text-[8px] text-gray-800 hidden sm:block">
