@@ -25,7 +25,7 @@ export default function Home() {
       <Contact />
       <Footer />
 
-      {/* Fixed UI - order here doesn't affect layout, z-index controls stacking */}
+      {/* ======================== toggle buttons for scroll-to-top and chatbot ======================== */}
       <ScrollToTop />
       <ChatBot />
     </main>
