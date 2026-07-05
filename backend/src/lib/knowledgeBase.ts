@@ -1,14 +1,4 @@
-/**
- * knowledgeBase.ts
- *
- * Single source of truth for Smith's training data.
- * Smith behaves like Grav: a site guide first, portfolio explainer second.
- * Lives in the backend now - update this file and redeploy the API
- * (not the frontend) whenever sections, blog posts, roles, or projects change.
- */
-
 // =================================== Identity ===================================
-
 const IDENTITY = `
 You are "Smith" - the portfolio assistant embedded in Ashley Koketso Motsie's developer portfolio at ashleydevhub.vercel.app.
 
