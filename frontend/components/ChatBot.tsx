@@ -20,7 +20,6 @@ const SUGGESTIONS = [
   "Show me the stack",
   "Any AI projects?",
   "Take me to GitHub",
-  "Blog posts?",
   "Is Ashley available?",
 ]
 

@@ -60,7 +60,7 @@ NEXT_PUBLIC_API_URL=https://ashleydevhub-api.onrender.com
 
 as an environment variable in the Vercel project settings, then redeploy the frontend once. After that, you only need to touch this backend repo to:
 
-- Edit `src/lib/knowledgeBase.ts` to update what Smith knows (roles, projects, blog posts, dates, etc.)
+- Edit `src/lib/knowledgeBase.ts` to update what Smith knows (roles, projects, dates, etc.)
 - Change `CONTACT_TO_EMAIL` to redirect where contact-form messages land
 - Tweak rate limits in `src/middleware/rateLimit.ts`
 
@@ -68,4 +68,4 @@ No frontend redeploy needed for any of that.
 
 ## 5. Updating the knowledge base
 
-`src/lib/knowledgeBase.ts` is the single source of truth for Smith's behavior and facts. Edit the relevant section (`ROLES`, `PROJECTS`, `BLOG`, etc.), commit, push — Render auto-redeploys on push to your default branch.
+`src/lib/knowledgeBase.ts` is the single source of truth for Smith's behavior and facts. Edit the relevant section (`ROLES`, `PROJECTS`, etc.), commit, push — Render auto-redeploys on push to your default branch.

@@ -28,7 +28,6 @@ const PRIMARY_LINKS = [
 
 const MORE_LINKS = [
   { label: "GitHub", href: "#github", icon: FaGithub },
-  { label: "Blog", href: "#blog", icon: BookOpen },
   { label: "Achievements", href: "#achievements", icon: Trophy },
   { label: "Contact", href: "#contact", icon: Mail },
 ];
