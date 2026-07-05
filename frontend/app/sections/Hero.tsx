@@ -113,7 +113,7 @@ export default function Hero() {
                 KodEx-SA
               </a>
               <span className="text-gray-800 text-xs">·</span>
-              <span className="text-gray-700 font-mono text-xs">&gt; 2 active roles, 1 past</span>
+              <span className="text-gray-700 font-mono text-xs">&gt; 1 active role, 2 past</span>
             </div>
           </div>
 
