@@ -10,8 +10,6 @@ interface ContactBody {
   email?: string;
   subject?: string;
   message?: string;
-  // Honeypot field - real visitors never fill this in.
-  // Make sure the frontend includes a hidden input named "company" that bots tend to fill.
   company?: string;
 }
 
@@ -21,7 +19,6 @@ contactRouter.post("/", async (req: Request, res: Response) => {
   const body: ContactBody = req.body ?? {};
   const { name, email, subject, message, company } = body;
 
-  // Honeypot - silently accept but do nothing.
   if (company) {
     res.status(200).json({ ok: true });
     return;
@@ -37,7 +34,7 @@ contactRouter.post("/", async (req: Request, res: Response) => {
     return;
   }
 
-  if (!hasEmail || !resend) { // Should never happen since the route is only registered if email is configured, but just in case...
+  if (!hasEmail || !resend) {
     res.status(503).json({ error: "Contact form can't send your message, try again later." });
     return;
   }
@@ -71,7 +68,6 @@ contactRouter.post("/", async (req: Request, res: Response) => {
 
     res.status(200).json({ ok: true });
   } catch (err) {
-    // console.error("[contact] error:", err); // Log the error for debugging, but don't leak details to the client.
     res.status(500).json({ error: "Failed to send your message. Please try again or email directly." });
   }
 });
