@@ -18,10 +18,6 @@ import {
 } from "lucide-react";
 
 // =================================== Navigation config ===================================
-// Primary links appear in the desktop nav pill.
-// More links appear in the "More" dropdown and always in the mobile panel.
-// To add a new route: add it here - nowhere else needs to change.
-
 const PRIMARY_LINKS = [
   { label: "Home", href: "#hero", icon: Home },
   { label: "About", href: "#about", icon: User },
@@ -37,14 +33,13 @@ const MORE_LINKS = [
   { label: "Contact", href: "#contact", icon: Mail },
 ];
 
-// All links in order - used by the mobile slide-in panel
+// links in order - for mobile slide-in panel
 const ALL_LINKS = [...PRIMARY_LINKS, ...MORE_LINKS].map((link, i) => ({
   ...link,
   num: String(i + 1).padStart(2, "0"),
 }));
 
 // =================================== Component ===================================
-
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -122,7 +117,7 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Smooth-scroll helper — also closes both menus
+  // Smooth-scroll helper also closes both menus
   const navigate = (href: string) => {
     setMobileOpen(false);
     setMoreOpen(false);
@@ -146,14 +141,8 @@ export default function Header() {
             : "bg-transparent"
         }`}
       >
-        {/*
-          Layout: flex with three children.
-          - Logo - flex-none (natural width)
-          - Desktop nav - flex-1 hidden md:flex (disappears on mobile, centres itself on desktop)
-          - Right side  - flex-none ml-auto (always pushed to the far right)
-        */}
         <div className="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center gap-4">
-          {/* Logo */}
+          {/* ======================== Logo ======================== */}
           <a
             href="#hero"
             onClick={(e) => {
@@ -174,7 +163,7 @@ export default function Header() {
             </div>
           </a>
 
-          {/* Desktop nav - hidden on mobile, centred on md+ */}
+          {/* ======================== Desktop nav ======================== */}
           <nav className="hidden md:flex flex-1 items-center justify-center">
             <div className="relative">
               {/* Corner bracket frame */}
@@ -183,9 +172,9 @@ export default function Header() {
               <span className="absolute -top-1.5 -right-2   w-3 h-3 border-t border-r border-green-500/50 pointer-events-none" />
               <span className="absolute -bottom-1.5 -right-2 w-3 h-3 border-b border-r border-green-500/50 pointer-events-none" />
 
-              {/* Pill */}
+              {/* ======================== Pill ======================== */}
               <div className="flex items-center gap-0.5 bg-black/40 backdrop-blur-md border border-green-500/15 rounded-xl px-1.5 py-1.5">
-                {/* Primary links */}
+                {/* ======================== Primary links ======================== */}
                 {PRIMARY_LINKS.map(({ label, href, icon: Icon }) => (
                   <a
                     key={label}
@@ -211,10 +200,10 @@ export default function Header() {
                   </a>
                 ))}
 
-                {/* Divider */}
+                {/* ======================== Divider ======================== */}
                 <span className="w-px h-4 bg-green-500/20 mx-0.5" />
 
-                {/* More dropdown */}
+                {/* ======================== More dropdown ======================== */}
                 <div ref={moreRef} className="relative">
                   <button
                     onClick={() => setMoreOpen((o) => !o)}
@@ -256,10 +245,10 @@ export default function Header() {
                   )}
                 </div>
 
-                {/* Divider */}
+                {/* ======================== Divider ======================== */}
                 <span className="w-px h-4 bg-green-500/20 mx-0.5" />
 
-                {/* Resume */}
+                {/* ======================== Resume ======================== */}
                 <a
                   href="/assets/resume/Ashley_K_Motsie_Resume.pdf"
                   target="_blank"
@@ -273,9 +262,9 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* Right side — ml-auto keeps it pinned to the right on all screen sizes */}
+          {/* ======================== Right side ======================== */}
           <div className="flex-none ml-auto flex items-center">
-            {/* Hamburger — mobile only */}
+            {/* ======================== Hamburger ======================== */}
             <button
               className="md:hidden flex flex-col items-end justify-center gap-[5px] w-10 h-10"
               onClick={() => setMobileOpen((o) => !o)}
@@ -295,9 +284,9 @@ export default function Header() {
         </div>
       </header>
 
-      {/* ── MOBILE SLIDE-IN PANEL ──────────────────────────────────────────── */}
+      {/* ======================== MOBILE SLIDE-IN PANEL ======================== */}
 
-      {/* Backdrop */}
+      {/* ======================== Backdrop ======================== */}
       <div
         aria-hidden="true"
         onClick={() => setMobileOpen(false)}
@@ -308,20 +297,20 @@ export default function Header() {
         }`}
       />
 
-      {/* Panel */}
+      {/* ======================== Panel ======================== */}
       <div
         ref={panelRef}
         className={`fixed top-0 right-0 z-50 h-full w-72 bg-[#070707] border-l border-green-500/15 shadow-[-20px_0_60px_rgba(0,0,0,0.8)] flex flex-col transition-transform duration-350 ease-in-out md:hidden ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Subtle grid texture */}
+        {/* ======================== Subtle grid texture ======================== */}
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.025)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"
         />
 
-        {/* Panel title bar */}
+        {/* ======================== Panel title bar ======================== */}
         <div className="relative flex items-center justify-between px-5 h-16 border-b border-green-500/10 flex-shrink-0">
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
@@ -340,14 +329,14 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Terminal prompt */}
+        {/* ======================== Terminal prompt ======================== */}
         <div className="relative px-5 py-3 border-b border-green-500/8 flex-shrink-0">
           <p className="text-green-700 font-mono text-[10px]">
             $ cat navigation.txt
           </p>
         </div>
 
-        {/* Nav links */}
+        {/* ======================== Nav links ======================== */}
         <nav className="relative flex-1 flex flex-col px-3 py-3 overflow-y-auto gap-0.5">
           {ALL_LINKS.map(({ label, href, icon: Icon, num }, i) => (
             <a
@@ -396,7 +385,7 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Panel footer */}
+        {/* ======================== Panel footer ======================== */}
         <div className="relative flex-shrink-0 border-t border-green-500/10 px-5 py-5 flex flex-col gap-3">
           <a
             href="/assets/resume/Ashley_K_Motsie_Resume.pdf"
