@@ -50,7 +50,7 @@ function MiniTerminal() {
 
   return (
     <div className="w-full rounded-xl border border-green-500/20 bg-[#060606] overflow-hidden shadow-[0_0_40px_rgba(74,222,128,0.06)]">
-      {/* Title bar */}
+      {/* ======================== Title bar ======================== */}
       <div className="flex items-center gap-2 px-4 py-2.5 border-b border-green-500/10 bg-[#080808]">
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
@@ -58,7 +58,7 @@ function MiniTerminal() {
         <span className="ml-2 text-gray-700 font-mono text-[9px]">ashley@dev: ~</span>
       </div>
 
-      {/* Terminal body */}
+      {/* ======================== Terminal body ======================== */}
       <div className="p-4 font-mono text-xs space-y-1 min-h-[140px]">
         {terminalLines.slice(0, visibleLines).map((line, i) => (
           <div key={i} className="flex items-start gap-2">
@@ -89,7 +89,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-green-500/10 overflow-hidden">
 
-      {/* Background */}
+      {/* ======================== Background ======================== */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-green-500/35 to-transparent" />
       <div className="absolute bottom-0 right-0 text-[14vw] font-black font-mono text-green-500/[0.018] leading-none select-none pointer-events-none">AM</div>
@@ -97,12 +97,12 @@ export default function Footer() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-20 pt-14 pb-8">
 
-        {/* Main grid */}
+        {/* ======================== Main grid ======================== */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
 
-          {/* Col 1 — Brand + terminal (spans 4 cols) */}
+          {/* ======================== Col 1 ======================== */}
           <div className="md:col-span-4 flex flex-col gap-6">
-            {/* Brand */}
+            {/* ======================== Brand ======================== */}
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/25 flex items-center justify-center">
@@ -127,11 +127,11 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Mini terminal */}
+            {/* ======================== Mini terminal ======================== */}
             <MiniTerminal />
           </div>
 
-          {/* Col 2 — Quick links (spans 2 cols) */}
+          {/* ======================== Col 2 ======================== */}
           <div className="md:col-span-2 flex flex-col gap-4">
             <p className="text-green-700 font-mono text-[9px] uppercase tracking-widest">$ ls pages/</p>
             <nav className="flex flex-col gap-2">
@@ -148,7 +148,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Col 3 — Stack (spans 3 cols) */}
+          {/* ======================== Col 3 ======================== */}
           <div className="md:col-span-3 flex flex-col gap-4">
             <p className="text-green-700 font-mono text-[9px] uppercase tracking-widest">$ cat stack.txt</p>
             <div className="flex flex-col gap-2">
@@ -161,7 +161,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 4 — Connect (spans 3 cols) */}
+          {/* ======================== Col 4 ======================== */}
           <div className="md:col-span-3 flex flex-col gap-4">
             <p className="text-green-700 font-mono text-[9px] uppercase tracking-widest">$ connect --me</p>
             <div className="flex flex-col gap-3">
@@ -181,7 +181,7 @@ export default function Footer() {
                 </a>
               ))}
 
-              {/* Resume button */}
+              {/* ======================== Resume button ======================== */}
               <a
                 href="/assets/resume/Ashley_K_Motsie_Resume.pdf"
                 target="_blank"
@@ -192,23 +192,23 @@ export default function Footer() {
                 resume.pdf
               </a>
 
-              {/* Roles note */}
+              {/* ======================== Roles note ======================== */}
               <div className="mt-1 p-3 rounded-lg border border-green-500/8 bg-green-500/3">
                 <p className="text-green-700 font-mono text-[9px] mb-1">$ echo $ROLES</p>
                 <p className="text-gray-700 font-mono text-[10px] leading-relaxed">
-                  2 concurrent active positions
+                  1 active position
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
+        {/* ======================== Divider ======================== */}
         <div className="relative h-px w-full mb-7">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/18 to-transparent" />
         </div>
 
-        {/* Bottom bar */}
+        {/* ======================== Bottom bar ======================== */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-gray-800 font-mono text-[10px]">
             &copy; {year} &nbsp; Ashley Koketso Motsie &nbsp;·&nbsp; All rights reserved
