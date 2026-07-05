@@ -36,8 +36,8 @@ const skillGroups = [
 const stats = [
   { value: "3+", label: "Years Experience" },
   { value: "15+", label: "Projects Shipped" },
-  { value: "2", label: "Active Roles" },
-  { value: "10+", label: "Technologies" },
+  { value: "1", label: "Active Role" },
+  { value: "3+", label: "Technologies" },
 ]
 
 export default function Skills() {
@@ -49,7 +49,7 @@ export default function Skills() {
 
       <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 text-green-500 text-xs font-mono w-fit">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
@@ -61,7 +61,7 @@ export default function Skills() {
           <div className="w-10 h-0.5 bg-green-500/50" />
         </div>
 
-        {/* Grid */}
+        {/* ======================== Grid ======================== */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {skillGroups.map((group) => (
             <div
@@ -90,7 +90,7 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Stats */}
+        {/* ======================== Stats ======================== */}
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center group">
