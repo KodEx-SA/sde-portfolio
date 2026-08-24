@@ -68,20 +68,20 @@ export default function Contact() {
     <section id="contact" className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden">
 
       <div className="absolute inset-0 bg-[linear-gradient(rgba(122,162,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(122,162,247,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-500/4 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#7aa2f7]/4 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-500/20 bg-brand-500/5 text-brand-500 text-xs font-mono w-fit">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#7aa2f7]/20 bg-[#7aa2f7]/5 text-[#7aa2f7] text-xs font-mono w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#7aa2f7]" />
             contact.sh
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white font-mono">
-            Get In <span className="text-brand-400">Touch</span>
+            Get In <span className="text-[#7dcfff]">Touch</span>
           </h2>
-          <div className="w-10 h-0.5 bg-brand-500/50" />
+          <div className="w-10 h-0.5 bg-[#7aa2f7]/50" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -93,7 +93,7 @@ export default function Contact() {
                 I&apos;m open to new opportunities — remote roles, freelance projects, and collaborations.
                 Whether you have a project idea or just want to connect, feel free to reach out.
               </p>
-              <p className="text-brand-700 font-mono text-xs">
+              <p className="text-[#4c65ad] font-mono text-xs">
                 &gt; avg response time: within 24 hours
               </p>
             </div>
@@ -103,11 +103,11 @@ export default function Contact() {
               {contactInfo.map(({ icon: Icon, label, value, href, hint }) => (
                 <div
                   key={label}
-                  className="group p-3.5 rounded-xl border border-brand-500/10 bg-[#080808] hover:border-brand-500/25 transition-all duration-200"
+                  className="group p-3.5 rounded-xl border border-[#7aa2f7]/10 bg-[#080808] hover:border-[#7aa2f7]/25 transition-all duration-200"
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-md bg-brand-500/10 border border-brand-500/20 flex items-center justify-center flex-shrink-0 group-hover:border-brand-500/40 transition-colors">
-                      <Icon className="w-3 h-3 text-brand-500" />
+                    <div className="w-6 h-6 rounded-md bg-[#7aa2f7]/10 border border-[#7aa2f7]/20 flex items-center justify-center flex-shrink-0 group-hover:border-[#7aa2f7]/40 transition-colors">
+                      <Icon className="w-3 h-3 text-[#7aa2f7]" />
                     </div>
                     <p className="text-gray-700 font-mono text-[9px] uppercase tracking-widest">{label}</p>
                   </div>
@@ -116,7 +116,7 @@ export default function Contact() {
                       href={href}
                       target={href.startsWith("http") ? "_blank" : undefined}
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-gray-300 font-mono text-xs hover:text-brand-400 transition-colors group/link"
+                      className="flex items-center gap-1 text-gray-300 font-mono text-xs hover:text-[#7dcfff] transition-colors group/link"
                     >
                       {value}
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover/link:opacity-100 transition-opacity" />
@@ -133,14 +133,14 @@ export default function Contact() {
           {/* ======================== Right - Form ======================== */}
           <div className="relative">
             <div className="absolute -inset-3 pointer-events-none">
-              <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-brand-500/25" />
-              <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-brand-500/25" />
+              <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-[#7aa2f7]/25" />
+              <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-[#7aa2f7]/25" />
             </div>
 
             {sent ? (
-              <div className="flex flex-col items-center justify-center gap-5 py-20 text-center bg-[#080808] rounded-xl border border-brand-500/10">
-                <div className="w-14 h-14 rounded-full bg-brand-500/10 border border-brand-500/25 flex items-center justify-center">
-                  <CheckCircle className="w-7 h-7 text-brand-400" />
+              <div className="flex flex-col items-center justify-center gap-5 py-20 text-center bg-[#080808] rounded-xl border border-[#7aa2f7]/10">
+                <div className="w-14 h-14 rounded-full bg-[#7aa2f7]/10 border border-[#7aa2f7]/25 flex items-center justify-center">
+                  <CheckCircle className="w-7 h-7 text-[#7dcfff]" />
                 </div>
                 <div>
                   <p className="text-white font-mono font-bold text-lg">Message sent!</p>
@@ -148,7 +148,7 @@ export default function Contact() {
                 </div>
                 <button
                   onClick={() => { setSent(false); setForm({ name: "", email: "", subject: "", message: "", company: "" }) }}
-                  className="text-brand-500 font-mono text-xs hover:text-brand-300 transition-colors border border-brand-500/20 hover:border-brand-500/40 px-4 py-2 rounded-lg"
+                  className="text-[#7aa2f7] font-mono text-xs hover:text-[#b8cdfa] transition-colors border border-[#7aa2f7]/20 hover:border-[#7aa2f7]/40 px-4 py-2 rounded-lg"
                 >
                   send another message
                 </button>
@@ -156,9 +156,9 @@ export default function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-4 p-6 rounded-xl border border-brand-500/10 bg-[#080808]"
+                className="flex flex-col gap-4 p-6 rounded-xl border border-[#7aa2f7]/10 bg-[#080808]"
               >
-                <p className="text-brand-600 font-mono text-xs">$ ./send_message.sh</p>
+                <p className="text-[#6483d9] font-mono text-xs">$ ./send_message.sh</p>
 
                 {/* ======================== Honeypot hidden from real visitors, bots tend to fill it in ======================== */}
                 {/* <input
@@ -186,7 +186,7 @@ export default function Contact() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="Your name"
-                      className="bg-black/40 border border-brand-500/12 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 placeholder:text-gray-800 focus:outline-none focus:border-brand-500/35 focus:ring-1 focus:ring-brand-500/15 transition-all"
+                      className="bg-black/40 border border-[#7aa2f7]/12 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 placeholder:text-gray-800 focus:outline-none focus:border-[#7aa2f7]/35 focus:ring-1 focus:ring-[#7aa2f7]/15 transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
@@ -197,7 +197,7 @@ export default function Contact() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="your@email.com"
-                      className="bg-black/40 border border-brand-500/12 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 placeholder:text-gray-800 focus:outline-none focus:border-brand-500/35 focus:ring-1 focus:ring-brand-500/15 transition-all"
+                      className="bg-black/40 border border-[#7aa2f7]/12 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 placeholder:text-gray-800 focus:outline-none focus:border-[#7aa2f7]/35 focus:ring-1 focus:ring-[#7aa2f7]/15 transition-all"
                     />
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export default function Contact() {
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
                     placeholder="What's this about?"
-                    className="bg-black/40 border border-brand-500/12 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 placeholder:text-gray-800 focus:outline-none focus:border-brand-500/35 focus:ring-1 focus:ring-brand-500/15 transition-all"
+                    className="bg-black/40 border border-[#7aa2f7]/12 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 placeholder:text-gray-800 focus:outline-none focus:border-[#7aa2f7]/35 focus:ring-1 focus:ring-[#7aa2f7]/15 transition-all"
                   />
                 </div>
 
@@ -221,14 +221,14 @@ export default function Contact() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Tell me about your project or opportunity..."
-                    className="bg-black/40 border border-brand-500/12 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 placeholder:text-gray-800 focus:outline-none focus:border-brand-500/35 focus:ring-1 focus:ring-brand-500/15 transition-all resize-none"
+                    className="bg-black/40 border border-[#7aa2f7]/12 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 placeholder:text-gray-800 focus:outline-none focus:border-[#7aa2f7]/35 focus:ring-1 focus:ring-[#7aa2f7]/15 transition-all resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="bg-brand-500 hover:bg-brand-400 text-black font-bold font-mono gap-2 shadow-[0_0_20px_rgba(125,207,255,0.3)] hover:shadow-[0_0_35px_rgba(125,207,255,0.5)] hover:-translate-y-px transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 rounded-lg"
+                  className="bg-[#7aa2f7] hover:bg-[#7dcfff] text-black font-bold font-mono gap-2 shadow-[0_0_20px_rgba(125,207,255,0.3)] hover:shadow-[0_0_35px_rgba(125,207,255,0.5)] hover:-translate-y-px transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 rounded-lg"
                 >
                   <Send className="w-4 h-4" />
                   {loading ? "Sending..." : "Send Message"}

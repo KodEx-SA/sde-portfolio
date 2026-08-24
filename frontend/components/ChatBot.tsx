@@ -46,7 +46,7 @@ function NavLink({ label, anchor, onNavigate }: {
           ?.scrollIntoView({ behavior: "smooth", block: "start" })
         onNavigate()
       }}
-      className="inline-flex items-center gap-1 px-2.5 py-1 mt-1.5 rounded-md bg-brand-500/15 border border-brand-500/30 text-brand-300 hover:bg-brand-500/25 hover:border-brand-500/60 font-mono text-[11px] font-semibold transition-all duration-200 group cursor-pointer"
+      className="inline-flex items-center gap-1 px-2.5 py-1 mt-1.5 rounded-md bg-[#7aa2f7]/15 border border-[#7aa2f7]/30 text-[#b8cdfa] hover:bg-[#7aa2f7]/25 hover:border-[#7aa2f7]/60 font-mono text-[11px] font-semibold transition-all duration-200 group cursor-pointer"
     >
       <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
       {label}
@@ -75,7 +75,7 @@ function TypingDots() {
   return (
     <span className="inline-flex items-center gap-[3px] px-1 py-0.5">
       {[0, 1, 2].map((i) => (
-        <span key={i} className="w-1.5 h-1.5 rounded-full bg-brand-400/60 animate-bounce"
+        <span key={i} className="w-1.5 h-1.5 rounded-full bg-[#7dcfff]/60 animate-bounce"
           style={{ animationDelay: `${i * 160}ms`, animationDuration: "1s" }} />
       ))}
     </span>
@@ -127,8 +127,8 @@ function TrafficLight({ color, symbol, onClick, title, className }: {
 
 function StatusDot({ status }: { status: "ready" | "streaming" | "submitted" | "error" }) {
   const cfg = {
-    ready: { color: "bg-brand-500", pulse: false, label: "ready" },
-    streaming: { color: "bg-brand-400", pulse: true, label: "streaming" },
+    ready: { color: "bg-[#7aa2f7]", pulse: false, label: "ready" },
+    streaming: { color: "bg-[#7dcfff]", pulse: true, label: "streaming" },
     submitted: { color: "bg-yellow-400", pulse: true, label: "thinking" },
     error: { color: "bg-red-500", pulse: false, label: "error" },
   }[status]
@@ -256,7 +256,7 @@ export default function ChatBot() {
       : "sm:bottom-4 sm:right-4 sm:left-4 sm:top-4 sm:w-auto sm:h-auto w-full h-[96dvh]",
     minimised && !maximised && "sm:!h-[44px] h-[44px] bottom-24 rounded-2xl left-auto right-5 w-[300px]",
     "bg-[#0d0d0d]",
-    "border border-brand-500/20",
+    "border border-[#7aa2f7]/20",
     "shadow-[0_-4px_40px_rgba(0,0,0,0.7),0_0_0_1px_rgba(125,207,255,0.06),inset_0_1px_0_rgba(125,207,255,0.05)]",
     "sm:shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_0_1px_rgba(125,207,255,0.06),inset_0_1px_0_rgba(125,207,255,0.05)]",
     "overflow-hidden",
@@ -274,10 +274,10 @@ export default function ChatBot() {
           "flex items-center justify-center",
           "border-2 transition-all duration-300 ease-out",
           open
-            ? "bg-brand-500 border-brand-400 text-black scale-95 rotate-90"
+            ? "bg-[#7aa2f7] border-[#7dcfff] text-black scale-95 rotate-90"
             : [
-              "bg-[#0d0d0d] border-brand-500/35 text-brand-400",
-              "hover:border-brand-400/70 hover:scale-110",
+              "bg-[#0d0d0d] border-[#7aa2f7]/35 text-[#7dcfff]",
+              "hover:border-[#7dcfff]/70 hover:scale-110",
               "shadow-[0_0_0_4px_rgba(125,207,255,0.06),0_0_20px_rgba(125,207,255,0.15)]",
               "hover:shadow-[0_0_0_6px_rgba(125,207,255,0.1),0_0_32px_rgba(125,207,255,0.35)]",
             ],
@@ -285,7 +285,7 @@ export default function ChatBot() {
       >
         {open ? <X className="w-5 h-5" /> : <MessageCircle className="w-5 h-5" />}
         {!open && unread > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-brand-500 text-black text-[10px] font-bold font-mono flex items-center justify-center border-2 border-[#0d0d0d] animate-bounce">
+          <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-[#7aa2f7] text-black text-[10px] font-bold font-mono flex items-center justify-center border-2 border-[#0d0d0d] animate-bounce">
             {unread}
           </span>
         )}
@@ -306,7 +306,7 @@ export default function ChatBot() {
           <ScanLines />
 
           {/* ======================== Title bar ======================== */}
-          <div className="relative z-10 flex items-center gap-3 px-3.5 py-2.5 border-b border-brand-500/12 bg-[#111]/90 backdrop-blur-sm flex-shrink-0 select-none"
+          <div className="relative z-10 flex items-center gap-3 px-3.5 py-2.5 border-b border-[#7aa2f7]/12 bg-[#111]/90 backdrop-blur-sm flex-shrink-0 select-none"
             style={{ minHeight: "44px" }}>
 
             {/* ======================== Traffic lights ======================== */}
@@ -318,9 +318,9 @@ export default function ChatBot() {
 
             {/* ======================== Title ======================== */}
             <div className="flex-1 flex items-center justify-center gap-2 min-w-0">
-              <Terminal className="w-3 h-3 text-brand-600/80 flex-shrink-0" />
+              <Terminal className="w-3 h-3 text-[#6483d9]/80 flex-shrink-0" />
               <span className="font-mono text-[10px] text-gray-600 truncate tracking-wide">
-                smith<span className="text-brand-800">@</span>ashley-dev<span className="text-gray-700">:~$</span>
+                smith<span className="text-[#384876]">@</span>ashley-dev<span className="text-gray-700">:~$</span>
               </span>
               {/* ======================== Live status pill ======================== */}
               <span className={cn(
@@ -328,9 +328,9 @@ export default function ChatBot() {
                 "font-mono text-[8px] uppercase tracking-widest",
                 isLoading
                   ? "text-yellow-600/80 bg-yellow-500/8 border border-yellow-500/15"
-                  : "text-brand-800 bg-brand-500/6 border border-brand-500/10",
+                  : "text-[#384876] bg-[#7aa2f7]/6 border border-[#7aa2f7]/10",
               )}>
-                <span className={cn("w-1 h-1 rounded-full", isLoading ? "bg-yellow-500 animate-pulse" : "bg-brand-700")} />
+                <span className={cn("w-1 h-1 rounded-full", isLoading ? "bg-yellow-500 animate-pulse" : "bg-[#4c65ad]")} />
                 {isLoading ? (status === "streaming" ? "streaming" : "thinking") : "online"}
               </span>
             </div>
@@ -339,7 +339,7 @@ export default function ChatBot() {
             <button
               onClick={reset}
               title="New session"
-              className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded text-gray-700 hover:text-brand-400 hover:bg-brand-500/10 transition-colors"
+              className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded text-gray-700 hover:text-[#7dcfff] hover:bg-[#7aa2f7]/10 transition-colors"
             >
               <RotateCcw className="w-3 h-3" />
             </button>
@@ -351,9 +351,9 @@ export default function ChatBot() {
               style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(125,207,255,0.15) transparent" }}>
 
               {/* ======================== Boot header ======================== */}
-              <div className="font-mono text-[9px] pb-2 border-b border-brand-500/8 flex items-center justify-between">
+              <div className="font-mono text-[9px] pb-2 border-b border-[#7aa2f7]/8 flex items-center justify-between">
                 <span>
-                  <span className="text-brand-800">smith</span>
+                  <span className="text-[#384876]">smith</span>
                   <span className="text-gray-800"> v1.0.0 </span>
                   <span className="text-gray-800">·</span>
                   <span className="text-gray-800"> groq/llama-3.1-8b-instant</span>
@@ -381,16 +381,16 @@ export default function ChatBot() {
                       <div className={cn(
                         "w-[18px] h-[18px] rounded-[4px] flex items-center justify-center flex-shrink-0",
                         isBot
-                          ? "bg-brand-500/10 border border-brand-500/20"
+                          ? "bg-[#7aa2f7]/10 border border-[#7aa2f7]/20"
                           : "bg-white/5 border border-white/8",
                       )}>
                         {isBot
-                          ? <Bot className="w-2.5 h-2.5 text-brand-500/80" />
+                          ? <Bot className="w-2.5 h-2.5 text-[#7aa2f7]/80" />
                           : <User className="w-2.5 h-2.5 text-gray-600" />}
                       </div>
                       <span className={cn(
                         "font-mono text-[8px] font-bold uppercase tracking-[0.15em]",
-                        isBot ? "text-brand-800" : "text-gray-700",
+                        isBot ? "text-[#384876]" : "text-gray-700",
                       )}>
                         {isBot ? "smith" : "you"}
                       </span>
@@ -400,8 +400,8 @@ export default function ChatBot() {
                     <div className={cn(
                       "font-mono text-[12px] leading-[1.65] px-3 py-2 rounded-xl max-w-[88%]",
                       isBot
-                        ? "bg-[#141414] border border-brand-500/8 text-gray-300 rounded-tl-[4px] self-start"
-                        : "bg-brand-500/[0.07] border border-brand-500/[0.1] text-brand-100 rounded-tr-[4px] self-end text-right",
+                        ? "bg-[#141414] border border-[#7aa2f7]/8 text-gray-300 rounded-tl-[4px] self-start"
+                        : "bg-[#7aa2f7]/[0.07] border border-[#7aa2f7]/[0.1] text-[#e8edfd] rounded-tr-[4px] self-end text-right",
                     )}>
                       {isBot ? (
                         <>
@@ -411,7 +411,7 @@ export default function ChatBot() {
                             <ParsedMessage content={text} onNavigate={() => setOpen(false)} />
                           )}
                           {streaming && text !== "" && (
-                            <span className="inline-block w-[2px] h-[13px] bg-brand-400 animate-[blink_1s_step-end_infinite] ml-0.5 align-middle rounded-full" />
+                            <span className="inline-block w-[2px] h-[13px] bg-[#7dcfff] animate-[blink_1s_step-end_infinite] ml-0.5 align-middle rounded-full" />
                           )}
                         </>
                       ) : (
@@ -431,12 +431,12 @@ export default function ChatBot() {
                       onClick={() => sendSuggestion(s)}
                       className={cn(
                         "font-mono text-[10px] px-2.5 py-1 rounded-md cursor-pointer transition-all duration-200",
-                        "border border-brand-500/12 bg-transparent text-brand-900",
-                        "hover:text-brand-300 hover:bg-brand-500/10 hover:border-brand-500/30",
+                        "border border-[#7aa2f7]/12 bg-transparent text-[#262e47]",
+                        "hover:text-[#b8cdfa] hover:bg-[#7aa2f7]/10 hover:border-[#7aa2f7]/30",
                         "active:scale-95",
                       )}
                     >
-                      <span className="text-brand-800 mr-1">›</span>{s}
+                      <span className="text-[#384876] mr-1">›</span>{s}
                     </button>
                   ))}
                 </div>
@@ -448,13 +448,13 @@ export default function ChatBot() {
 
           {/* ======================== Input ======================== */}
           {!minimised && (
-            <div className="relative z-10 border-t border-brand-500/10 bg-[#0f0f0f]/95 px-3 pb-3 pt-2 flex-shrink-0">
+            <div className="relative z-10 border-t border-[#7aa2f7]/10 bg-[#0f0f0f]/95 px-3 pb-3 pt-2 flex-shrink-0">
               <form
                 onSubmit={(e) => { e.preventDefault(); handleSend() }}
                 className="flex items-end gap-2"
               >
                 {/* ======================== prompt symbol ======================== */}
-                <span className="font-mono text-brand-700 text-[13px] pb-[9px] flex-shrink-0 select-none leading-none">
+                <span className="font-mono text-[#4c65ad] text-[13px] pb-[9px] flex-shrink-0 select-none leading-none">
                   ❯
                 </span>
 
@@ -471,7 +471,7 @@ export default function ChatBot() {
                   className={cn(
                     "flex-1 resize-none bg-transparent",
                     "font-mono text-[12px] text-gray-200 leading-relaxed",
-                    "placeholder:text-gray-800 caret-brand-400",
+                    "placeholder:text-gray-800 caret-[#7dcfff]",
                     "focus:outline-none border-0 ring-0",
                     "disabled:opacity-30 disabled:cursor-not-allowed",
                     "py-[9px]",
@@ -504,10 +504,10 @@ export default function ChatBot() {
                     className={cn(
                       "w-8 h-8 rounded-lg flex-shrink-0 self-end mb-0.5",
                       "flex items-center justify-center",
-                      "bg-brand-500/10 text-brand-400 border border-brand-500/20",
-                      "hover:bg-brand-500 hover:text-black hover:border-brand-500",
+                      "bg-[#7aa2f7]/10 text-[#7dcfff] border border-[#7aa2f7]/20",
+                      "hover:bg-[#7aa2f7] hover:text-black hover:border-[#7aa2f7]",
                       "hover:shadow-[0_0_12px_rgba(125,207,255,0.35)]",
-                      "disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:bg-brand-500/10 disabled:hover:text-brand-400 disabled:hover:border-brand-500/20 disabled:hover:shadow-none",
+                      "disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:bg-[#7aa2f7]/10 disabled:hover:text-[#7dcfff] disabled:hover:border-[#7aa2f7]/20 disabled:hover:shadow-none",
                       "transition-all duration-200 active:scale-95",
                     )}
                   >
