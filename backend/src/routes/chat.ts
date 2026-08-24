@@ -28,7 +28,7 @@ chatRouter.post("/", async (req: Request, res: Response) => {
 
   try {
     const result = streamText({
-      model: groq("llama-3.1-8b-instant"),
+      model: groq("openai/gpt-oss-120b"),
       system: SYSTEM_PROMPT,
       messages: await convertToModelMessages(messages),
       temperature: 0.7,
