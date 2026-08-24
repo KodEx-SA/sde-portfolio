@@ -49,12 +49,12 @@ function MiniTerminal() {
   }, [visibleLines])
 
   return (
-    <div className="w-full rounded-xl border border-green-500/20 bg-[#060606] overflow-hidden shadow-[0_0_40px_rgba(74,222,128,0.06)]">
+    <div className="w-full rounded-xl border border-[#7aa2f7]/20 bg-[#060606] overflow-hidden shadow-[0_0_40px_rgba(125,207,255,0.06)]">
       {/* ======================== Title bar ======================== */}
-      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-green-500/10 bg-[#080808]">
+      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#7aa2f7]/10 bg-[#080808]">
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-        <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+        <span className="w-2.5 h-2.5 rounded-full bg-[#7aa2f7]/60" />
         <span className="ml-2 text-gray-700 font-mono text-[9px]">ashley@dev: ~</span>
       </div>
 
@@ -64,10 +64,10 @@ function MiniTerminal() {
           <div key={i} className="flex items-start gap-2">
             {line.prompt ? (
               <>
-                <span className="text-green-600 flex-shrink-0">❯</span>
-                <span className="text-green-400">
+                <span className="text-[#6483d9] flex-shrink-0">❯</span>
+                <span className="text-[#7dcfff]">
                   {line.text === "_" ? (
-                    <span className="inline-block w-1.5 h-3.5 bg-green-400 animate-pulse align-middle" />
+                    <span className="inline-block w-1.5 h-3.5 bg-[#7dcfff] animate-pulse align-middle" />
                   ) : (
                     line.text
                   )}
@@ -87,13 +87,13 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative border-t border-green-500/10 overflow-hidden">
+    <footer className="relative border-t border-[#7aa2f7]/10 overflow-hidden">
 
       {/* ======================== Background ======================== */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-green-500/35 to-transparent" />
-      <div className="absolute bottom-0 right-0 text-[14vw] font-black font-mono text-green-500/[0.018] leading-none select-none pointer-events-none">AM</div>
-      <div className="absolute bottom-0 left-0 w-[300px] h-[200px] bg-green-500/3 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(122,162,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(122,162,247,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-[#7aa2f7]/35 to-transparent" />
+      <div className="absolute bottom-0 right-0 text-[14vw] font-black font-mono text-[#7aa2f7]/[0.018] leading-none select-none pointer-events-none">AM</div>
+      <div className="absolute bottom-0 left-0 w-[300px] h-[200px] bg-[#7aa2f7]/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-20 pt-14 pb-8">
 
@@ -105,25 +105,25 @@ export default function Footer() {
             {/* ======================== Brand ======================== */}
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/25 flex items-center justify-center">
-                  <Terminal className="w-4 h-4 text-green-400" />
+                <div className="w-8 h-8 rounded-lg bg-[#7aa2f7]/10 border border-[#7aa2f7]/25 flex items-center justify-center">
+                  <Terminal className="w-4 h-4 text-[#7dcfff]" />
                 </div>
                 <div className="font-mono text-sm">
                   <span className="text-white font-bold">ashley</span>
-                  <span className="text-green-400 font-bold">.</span>
-                  <span className="text-green-600">dev</span>
+                  <span className="text-[#7dcfff] font-bold">.</span>
+                  <span className="text-[#6483d9]">dev</span>
                 </div>
               </div>
               <p className="text-gray-700 font-mono text-xs leading-relaxed">
                 Software Developer &amp; AI Engineer building production-ready software from South Africa.
               </p>
               <div className="flex items-center gap-1.5 text-gray-700 font-mono text-[10px]">
-                <MapPin className="w-3 h-3 text-green-800 flex-shrink-0" />
+                <MapPin className="w-3 h-3 text-[#384876] flex-shrink-0" />
                 Rustenburg, North West, ZA
               </div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-500/20 bg-green-500/5 w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-green-600 font-mono text-[10px]">open to work</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#7aa2f7]/20 bg-[#7aa2f7]/5 w-fit">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#7dcfff] animate-pulse" />
+                <span className="text-[#6483d9] font-mono text-[10px]">open to work</span>
               </div>
             </div>
 
@@ -133,15 +133,15 @@ export default function Footer() {
 
           {/* ======================== Col 2 ======================== */}
           <div className="md:col-span-2 flex flex-col gap-4">
-            <p className="text-green-700 font-mono text-[9px] uppercase tracking-widest">$ ls pages/</p>
+            <p className="text-[#4c65ad] font-mono text-[9px] uppercase tracking-widest">$ ls pages/</p>
             <nav className="flex flex-col gap-2">
               {quickLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="group flex items-center gap-1.5 text-gray-600 hover:text-green-400 font-mono text-xs transition-colors duration-200"
+                  className="group flex items-center gap-1.5 text-gray-600 hover:text-[#7dcfff] font-mono text-xs transition-colors duration-200"
                 >
-                  <span className="text-green-900 group-hover:text-green-700 transition-colors text-[10px]">/</span>
+                  <span className="text-[#262e47] group-hover:text-[#4c65ad] transition-colors text-[10px]">/</span>
                   {link.label}
                 </a>
               ))}
@@ -150,11 +150,11 @@ export default function Footer() {
 
           {/* ======================== Col 3 ======================== */}
           <div className="md:col-span-3 flex flex-col gap-4">
-            <p className="text-green-700 font-mono text-[9px] uppercase tracking-widest">$ cat stack.txt</p>
+            <p className="text-[#4c65ad] font-mono text-[9px] uppercase tracking-widest">$ cat stack.txt</p>
             <div className="flex flex-col gap-2">
               {techStack.map((tech) => (
                 <div key={tech} className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-green-800 flex-shrink-0" />
+                  <span className="w-1 h-1 rounded-full bg-[#384876] flex-shrink-0" />
                   <span className="text-gray-700 font-mono text-xs">{tech}</span>
                 </div>
               ))}
@@ -163,7 +163,7 @@ export default function Footer() {
 
           {/* ======================== Col 4 ======================== */}
           <div className="md:col-span-3 flex flex-col gap-4">
-            <p className="text-green-700 font-mono text-[9px] uppercase tracking-widest">$ connect --me</p>
+            <p className="text-[#4c65ad] font-mono text-[9px] uppercase tracking-widest">$ connect --me</p>
             <div className="flex flex-col gap-3">
               {socials.map(({ label, href, icon: Icon }) => (
                 <a
@@ -171,9 +171,9 @@ export default function Footer() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-2.5 text-gray-600 hover:text-green-400 font-mono text-xs transition-all duration-200"
+                  className="group flex items-center gap-2.5 text-gray-600 hover:text-[#7dcfff] font-mono text-xs transition-all duration-200"
                 >
-                  <div className="w-6 h-6 rounded-md bg-green-500/6 border border-green-500/12 flex items-center justify-center flex-shrink-0 group-hover:border-green-500/40 group-hover:bg-green-500/12 transition-all duration-200">
+                  <div className="w-6 h-6 rounded-md bg-[#7aa2f7]/6 border border-[#7aa2f7]/12 flex items-center justify-center flex-shrink-0 group-hover:border-[#7aa2f7]/40 group-hover:bg-[#7aa2f7]/12 transition-all duration-200">
                     <Icon className="w-3 h-3" />
                   </div>
                   {label}
@@ -186,15 +186,15 @@ export default function Footer() {
                 href="/assets/resume/Ashley_K_Motsie_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-2 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono font-bold bg-green-500/8 border border-green-500/20 text-green-500 rounded-lg hover:bg-green-500/15 hover:border-green-400/40 hover:text-green-400 transition-all duration-200"
+                className="group mt-2 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono font-bold bg-[#7aa2f7]/8 border border-[#7aa2f7]/20 text-[#7aa2f7] rounded-lg hover:bg-[#7aa2f7]/15 hover:border-[#7dcfff]/40 hover:text-[#7dcfff] transition-all duration-200"
               >
                 <Download className="w-3.5 h-3.5 group-hover:translate-y-px transition-transform duration-200" />
                 resume.pdf
               </a>
 
               {/* ======================== Roles note ======================== */}
-              <div className="mt-1 p-3 rounded-lg border border-green-500/8 bg-green-500/3">
-                <p className="text-green-700 font-mono text-[9px] mb-1">$ echo $ROLES</p>
+              <div className="mt-1 p-3 rounded-lg border border-[#7aa2f7]/8 bg-[#7aa2f7]/3">
+                <p className="text-[#4c65ad] font-mono text-[9px] mb-1">$ echo $ROLES</p>
                 <p className="text-gray-700 font-mono text-[10px] leading-relaxed">
                   1 active position
                 </p>
@@ -205,7 +205,7 @@ export default function Footer() {
 
         {/* ======================== Divider ======================== */}
         <div className="relative h-px w-full mb-7">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/18 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#7aa2f7]/18 to-transparent" />
         </div>
 
         {/* ======================== Bottom bar ======================== */}
@@ -214,7 +214,7 @@ export default function Footer() {
             &copy; {year} &nbsp; Ashley Koketso Motsie &nbsp;·&nbsp; All rights reserved
           </p>
           <div className="flex items-center gap-3 text-gray-800 font-mono text-[10px]">
-            <span>Crafted with <span className="text-green-900">♥</span> in rustenburg, za</span>
+            <span>Crafted with <span className="text-[#262e47]">♥</span> in rustenburg, za</span>
             <span className="text-gray-900">·</span>
           </div>
         </div>

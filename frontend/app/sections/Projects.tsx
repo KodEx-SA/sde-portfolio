@@ -88,11 +88,11 @@ function TerminalPlaceholder({ title }: { title: string }) {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center bg-[#060606] p-6">
       <div className="w-full max-w-xs font-mono text-xs space-y-1.5">
-        <p className="text-green-500">$ npm run dev</p>
+        <p className="text-[#7aa2f7]">$ npm run dev</p>
         <p className="text-gray-700">&gt; building {title.toLowerCase().replace(/\s+/g, "-")}...</p>
         <p className="text-gray-700">&gt; compiled successfully</p>
-        <p className="text-emerald-400">&gt; ready on localhost:3000</p>
-        <span className="inline-block w-1.5 h-3.5 bg-green-400 animate-pulse align-middle" />
+        <p className="text-[#bb9af7]">&gt; ready on localhost:3000</p>
+        <span className="inline-block w-1.5 h-3.5 bg-[#7dcfff] animate-pulse align-middle" />
       </div>
     </div>
   )
@@ -105,20 +105,20 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden">
 
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(122,162,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(122,162,247,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 text-green-500 text-xs font-mono w-fit">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#7aa2f7]/20 bg-[#7aa2f7]/5 text-[#7aa2f7] text-xs font-mono w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#7aa2f7]" />
             projects.work
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white font-mono">
-            Featured <span className="text-green-400">Work</span>
+            Featured <span className="text-[#7dcfff]">Work</span>
           </h2>
-          <div className="w-10 h-0.5 bg-green-500/50" />
+          <div className="w-10 h-0.5 bg-[#7aa2f7]/50" />
         </div>
 
         {/* ======================== FEATURED ======================== */}
@@ -126,7 +126,7 @@ export default function Projects() {
           {featured.map((project, i) => (
             <div
               key={i}
-              className="group grid grid-cols-1 md:grid-cols-2 rounded-xl border border-green-500/10 bg-[#080808] overflow-hidden hover:border-green-500/30 transition-all duration-400 hover:shadow-[0_0_40px_rgba(74,222,128,0.06)]"
+              className="group grid grid-cols-1 md:grid-cols-2 rounded-xl border border-[#7aa2f7]/10 bg-[#080808] overflow-hidden hover:border-[#7aa2f7]/30 transition-all duration-400 hover:shadow-[0_0_40px_rgba(125,207,255,0.06)]"
             >
               {/* ======================== Image panel ======================== */}
               <div className={`h-56 md:h-auto relative overflow-hidden flex-shrink-0 ${i % 2 !== 0 ? "md:order-last" : ""}`}>
@@ -147,7 +147,7 @@ export default function Projects() {
                     {/* Bottom fade */}
                     <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#080808]/70 to-transparent z-10 md:hidden" />
                     {/* Color tint on hover */}
-                    <div className="absolute inset-0 bg-green-500/0 group-hover:bg-green-500/5 transition-colors duration-400 z-10" />
+                    <div className="absolute inset-0 bg-[#7aa2f7]/0 group-hover:bg-[#7aa2f7]/5 transition-colors duration-400 z-10" />
                   </>
                 ) : (
                   <TerminalPlaceholder title={project.title} />
@@ -158,8 +158,8 @@ export default function Projects() {
               <div className="p-6 md:p-8 lg:p-10 flex flex-col gap-4 justify-center">
                 {/* ======================== Meta ======================== */}
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="inline-flex items-center gap-1 text-[9px] font-mono px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-500">
-                    <span className="w-1 h-1 rounded-full bg-green-400 animate-pulse" />
+                  <span className="inline-flex items-center gap-1 text-[9px] font-mono px-2 py-0.5 rounded-full bg-[#7aa2f7]/10 border border-[#7aa2f7]/20 text-[#7aa2f7]">
+                    <span className="w-1 h-1 rounded-full bg-[#7dcfff] animate-pulse" />
                     {project.year}
                   </span>
                   {project.tags.map((tag) => (
@@ -170,19 +170,19 @@ export default function Projects() {
                 </div>
 
                 {/* ======================== Title ======================== */}
-                <h3 className="text-white font-mono font-bold text-xl md:text-2xl group-hover:text-green-400 transition-colors duration-200 leading-snug">
+                <h3 className="text-white font-mono font-bold text-xl md:text-2xl group-hover:text-[#7dcfff] transition-colors duration-200 leading-snug">
                   {project.title}
                 </h3>
 
                 {/* ======================== Animated underline ======================== */}
-                <div className="h-px w-8 group-hover:w-full bg-gradient-to-r from-green-500/60 to-transparent transition-all duration-500 ease-out" />
+                <div className="h-px w-8 group-hover:w-full bg-gradient-to-r from-[#7aa2f7]/60 to-transparent transition-all duration-500 ease-out" />
 
                 <p className="text-gray-500 text-sm leading-relaxed">{project.description}</p>
 
                 {/* ======================== Stack ======================== */}
                 <div className="flex flex-wrap gap-1.5">
                   {project.stack.map((s) => (
-                    <span key={s} className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-white/3 text-gray-500 border border-white/6 hover:border-green-500/20 hover:text-gray-400 transition-colors duration-200">
+                    <span key={s} className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-white/3 text-gray-500 border border-white/6 hover:border-[#7aa2f7]/20 hover:text-gray-400 transition-colors duration-200">
                       {s}
                     </span>
                   ))}
@@ -195,7 +195,7 @@ export default function Projects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn flex items-center gap-1.5 text-xs font-mono font-bold text-black bg-green-500 hover:bg-green-400 px-5 py-2.5 rounded-lg transition-all duration-200 shadow-[0_0_16px_rgba(74,222,128,0.3)] hover:shadow-[0_0_28px_rgba(74,222,128,0.5)] hover:-translate-y-px"
+                      className="group/btn flex items-center gap-1.5 text-xs font-mono font-bold text-black bg-[#7aa2f7] hover:bg-[#7dcfff] px-5 py-2.5 rounded-lg transition-all duration-200 shadow-[0_0_16px_rgba(125,207,255,0.3)] hover:shadow-[0_0_28px_rgba(125,207,255,0.5)] hover:-translate-y-px"
                     >
                       <Globe className="w-3.5 h-3.5" />
                       Live Demo
@@ -206,7 +206,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs font-mono text-green-400 border border-green-500/25 hover:border-green-400/50 hover:bg-green-500/8 px-5 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-px"
+                    className="flex items-center gap-1.5 text-xs font-mono text-[#7dcfff] border border-[#7aa2f7]/25 hover:border-[#7dcfff]/50 hover:bg-[#7aa2f7]/8 px-5 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-px"
                   >
                     <FaGithub className="w-3.5 h-3.5" />
                     Source
@@ -222,7 +222,7 @@ export default function Projects() {
           {rest.map((project, i) => (
             <div
               key={i}
-              className="group rounded-xl border border-green-500/10 bg-[#080808] hover:border-green-500/25 hover:shadow-[0_0_24px_rgba(74,222,128,0.05)] transition-all duration-300 overflow-hidden flex flex-col hover:-translate-y-0.5"
+              className="group rounded-xl border border-[#7aa2f7]/10 bg-[#080808] hover:border-[#7aa2f7]/25 hover:shadow-[0_0_24px_rgba(125,207,255,0.05)] transition-all duration-300 overflow-hidden flex flex-col hover:-translate-y-0.5"
             >
               {/* Thumbnail */}
               <div className="relative h-32 w-full overflow-hidden flex-shrink-0">
@@ -235,12 +235,12 @@ export default function Projects() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/20 to-transparent" />
-                    <div className="absolute inset-0 bg-green-500/0 group-hover:bg-green-500/5 transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-[#7aa2f7]/0 group-hover:bg-[#7aa2f7]/5 transition-colors duration-300" />
                   </>
                 ) : (
                   <div className="w-full h-full bg-[#060606] flex items-center justify-center">
                     <div className="font-mono text-[9px] text-gray-800 space-y-1 px-3">
-                      <p className="text-green-900">$ npm run dev</p>
+                      <p className="text-[#262e47]">$ npm run dev</p>
                       <p>&gt; ready...</p>
                     </div>
                   </div>
@@ -248,15 +248,15 @@ export default function Projects() {
 
                 {/* ======================== Year badge ======================== */}
                 <div className="absolute top-2 left-2 z-10">
-                  <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-green-500/20 text-green-600">
+                  <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-[#7aa2f7]/20 text-[#6483d9]">
                     {project.year}
                   </span>
                 </div>
 
                 {/* ======================== Live indicator ======================== */}
                 <div className="absolute top-2 right-2 z-10">
-                  <span className="flex items-center gap-1 text-[8px] font-mono px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-green-500/20 text-green-500">
-                    <span className="w-1 h-1 rounded-full bg-green-400 animate-pulse" />
+                  <span className="flex items-center gap-1 text-[8px] font-mono px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-[#7aa2f7]/20 text-[#7aa2f7]">
+                    <span className="w-1 h-1 rounded-full bg-[#7dcfff] animate-pulse" />
                     live
                   </span>
                 </div>
@@ -267,14 +267,14 @@ export default function Projects() {
                 {/* ======================== Tags ======================== */}
                 <div className="flex flex-wrap gap-1">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-[8px] font-mono px-1.5 py-0.5 rounded-full bg-green-500/8 border border-green-500/15 text-green-700">
+                    <span key={tag} className="text-[8px] font-mono px-1.5 py-0.5 rounded-full bg-[#7aa2f7]/8 border border-[#7aa2f7]/15 text-[#4c65ad]">
                       #{tag}
                     </span>
                   ))}
                 </div>
 
                 {/* ======================== Title ======================== */}
-                <h3 className="text-white font-mono font-bold text-xs group-hover:text-green-400 transition-colors duration-200 leading-snug">
+                <h3 className="text-white font-mono font-bold text-xs group-hover:text-[#7dcfff] transition-colors duration-200 leading-snug">
                   {project.title}
                 </h3>
 
@@ -298,13 +298,13 @@ export default function Projects() {
                 </div>
 
                 {/* ======================== Action links ======================== */}
-                <div className="flex items-center gap-3 pt-2 border-t border-green-500/8">
+                <div className="flex items-center gap-3 pt-2 border-t border-[#7aa2f7]/8">
                   {project.live && (
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-[10px] font-mono text-green-500 hover:text-green-300 transition-colors"
+                      className="flex items-center gap-1 text-[10px] font-mono text-[#7aa2f7] hover:text-[#b8cdfa] transition-colors"
                     >
                       <ArrowUpRight className="w-3 h-3" />
                       Live
@@ -331,7 +331,7 @@ export default function Projects() {
             href="https://github.com/KodEx-SA"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 text-sm font-mono text-gray-600 hover:text-green-400 border border-white/8 hover:border-green-500/25 px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-px"
+            className="group flex items-center gap-2 text-sm font-mono text-gray-600 hover:text-[#7dcfff] border border-white/8 hover:border-[#7aa2f7]/25 px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-px"
           >
             <FaGithub className="w-4 h-4" />
             View all projects on GitHub
