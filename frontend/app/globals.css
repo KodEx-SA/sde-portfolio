@@ -39,6 +39,22 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+
+  /* Tokyo Night brand scale — replaces the old green/emerald accent */
+  --color-brand-100: #e8edfd;
+  --color-brand-300: #b8cdfa;
+  --color-brand-400: #7dcfff; /* cyan — bright accent, former green-400 */
+  --color-brand-500: #7aa2f7; /* blue — base accent, former green-500 */
+  --color-brand-600: #6483d9;
+  --color-brand-700: #4c65ad;
+  --color-brand-800: #384876;
+  --color-brand-900: #262e47;
+
+  /* Tokyo Night violet scale — replaces the old emerald gradient stops */
+  --color-iris-300: #d9c8fb;
+  --color-iris-400: #bb9af7;
+  --color-iris-500: #a07ee0;
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -101,8 +117,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --green: oklch(0.723 0.191 142.5);
-  --green-dim: oklch(0.723 0.191 142.5 / 30%);
+  --green: #7aa2f7;
+  --green-dim: oklch(0.723 0.19 264 / 30%);
 }
 
 .dark {
@@ -112,8 +128,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(88.743% 0.16191 178.583);        /* green */
-  --primary-foreground: oklch(0.145 0 0);     /* near black text on green */
+  --primary: oklch(72% 0.13 264);        /* Tokyo Night blue */
+  --primary-foreground: oklch(0.145 0 0);     /* near black text on blue */
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -123,7 +139,7 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.723 0.191 142.5);           /* green focus ring */
+  --ring: oklch(72% 0.13 264);           /* Tokyo Night blue focus ring */
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -136,7 +152,7 @@
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.723 0.191 142.5);           /* green focus ring */
+  --sidebar-ring: oklch(72% 0.13 264);           /* Tokyo Night blue focus ring */
 }
 
 @layer base {
