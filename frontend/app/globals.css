@@ -102,42 +102,42 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --green: #7aa2f7;
-  --green-dim: oklch(0.723 0.19 264 / 30%);
+  --green: #00e5ff;
+  --green-dim: oklch(0.86 0.14 205 / 30%);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(72% 0.13 264);        /* Tokyo Night blue */
-  --primary-foreground: oklch(0.145 0 0);     /* near black text on blue */
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: oklch(0.14 0.02 245);          /* #04070d deep navy-black */
+  --foreground: oklch(0.985 0.01 205);
+  --card: oklch(0.18 0.025 238);
+  --card-foreground: oklch(0.985 0.01 205);
+  --popover: oklch(0.18 0.025 238);
+  --popover-foreground: oklch(0.985 0.01 205);
+  --primary: oklch(0.86 0.14 205);             /* HUD cyan */
+  --primary-foreground: oklch(0.14 0.02 245);  /* near-black text on cyan */
+  --secondary: oklch(0.24 0.03 235);
+  --secondary-foreground: oklch(0.985 0.01 205);
+  --muted: oklch(0.24 0.03 235);
+  --muted-foreground: oklch(0.72 0.03 215);
+  --accent: oklch(0.24 0.03 235);
+  --accent-foreground: oklch(0.985 0.01 205);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(72% 0.13 264);           /* Tokyo Night blue focus ring */
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(72% 0.13 264);           /* Tokyo Night blue focus ring */
+  --border: oklch(0.86 0.14 205 / 16%);
+  --input: oklch(0.86 0.14 205 / 20%);
+  --ring: oklch(0.86 0.14 205);                /* cyan focus ring */
+  --chart-1: oklch(0.86 0.14 205);
+  --chart-2: oklch(0.8 0.17 165);
+  --chart-3: oklch(0.72 0.1 215);
+  --chart-4: oklch(0.55 0.09 220);
+  --chart-5: oklch(0.38 0.06 225);
+  --sidebar: oklch(0.18 0.025 238);
+  --sidebar-foreground: oklch(0.985 0.01 205);
+  --sidebar-primary: oklch(0.86 0.14 205);
+  --sidebar-primary-foreground: oklch(0.14 0.02 245);
+  --sidebar-accent: oklch(0.24 0.03 235);
+  --sidebar-accent-foreground: oklch(0.985 0.01 205);
+  --sidebar-border: oklch(0.86 0.14 205 / 16%);
+  --sidebar-ring: oklch(0.86 0.14 205);
 }
 
 @layer base {
@@ -155,3 +155,54 @@
 ::view-transition-old(root), ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;}
+
+/* =================================== HUD / agent aesthetic =================================== */
+::selection {
+  background: rgba(0, 229, 255, 0.25);
+  color: #e6fbff;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #0b4a5c #04070d;
+}
+
+/* faint scanlines + vignette over the whole page (never intercepts input) */
+.hud-body::before,
+.hud-body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+.hud-body::before {
+  z-index: 99;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
+}
+.hud-body::after {
+  z-index: 100;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 229, 255, 0.022) 0,
+    rgba(0, 229, 255, 0.022) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* arc-reactor animation */
+@keyframes reactor-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes reactor-pulse {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+.reactor-cw { animation: reactor-spin 28s linear infinite; }
+.reactor-ccw { animation: reactor-spin 18s linear infinite reverse; }
+.reactor-cw-fast { animation: reactor-spin 12s linear infinite; }
+.reactor-core { animation: reactor-pulse 2.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reactor-cw, .reactor-ccw, .reactor-cw-fast, .reactor-core { animation: none; }
+}

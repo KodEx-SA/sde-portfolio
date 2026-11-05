@@ -19,7 +19,7 @@ const certificates = [
     year: "2024",
     image: "/assets/certificates/cert-get-connected.jpeg",
     description: "Introduction to digital literacy, internet connectivity, and device networking fundamentals.",
-    color: "from-[#7aa2f7]/20 to-[#a07ee0]/10",
+    color: "from-[#00e5ff]/20 to-[#00ff9c]/10",
   },
   {
     title: "IT Essentials",
@@ -27,7 +27,7 @@ const certificates = [
     year: "2024",
     image: "/assets/certificates/cert-it-essentials.jpeg",
     description: "PC hardware and software fundamentals, troubleshooting methodology, and IT support skills.",
-    color: "from-teal-500/20 to-[#7aa2f7]/10",
+    color: "from-teal-500/20 to-[#00e5ff]/10",
   },
   {
     title: "IT & Computer Sciences",
@@ -35,7 +35,7 @@ const certificates = [
     year: "2023",
     image: "/assets/certificates/cert-it-completion.jpeg",
     description: "NCV National Certificate in Information Technology and Computer Sciences — Level 4.",
-    color: "from-[#a07ee0]/20 to-teal-500/10",
+    color: "from-[#00ff9c]/20 to-teal-500/10",
   },
 ]
 
@@ -45,20 +45,20 @@ export default function Achievements() {
   return (
     <section id="achievements" className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden">
 
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(122,162,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(122,162,247,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#7aa2f7]/20 bg-[#7aa2f7]/5 text-[#7aa2f7] text-xs font-mono w-fit">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7aa2f7]" />
-            achievements.log
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#00e5ff]/30 bg-[#00e5ff]/5 text-[#00e5ff] text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff]" />
+            [ 07 // achievements.log ]
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white font-mono">
-            Certifications &amp; <span className="text-[#7dcfff]">Awards</span>
+            Certifications &amp; <span className="text-[#7df9ff]">Awards</span>
           </h2>
-          <div className="w-10 h-0.5 bg-[#7aa2f7]/50" />
+          <div className="w-10 h-0.5 bg-[#00e5ff]/50" />
         </div>
 
         {/* ======================== Grid ======================== */}
@@ -67,7 +67,7 @@ export default function Achievements() {
             <button
               key={i}
               onClick={() => setSelected(cert)}
-              className="group text-left rounded-xl border border-[#7aa2f7]/10 bg-[#080808] hover:border-[#7aa2f7]/30 transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#7aa2f7]/30 hover:-translate-y-1"
+              className="group text-left rounded-xl border border-[#00e5ff]/10 bg-[#05090f] hover:border-[#00e5ff]/30 transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#00e5ff]/30 hover:-translate-y-1"
             >
               {/* ======================== Image ======================== */}
               <div className="relative h-44 w-full overflow-hidden">
@@ -78,33 +78,33 @@ export default function Achievements() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {/* ======================== Gradient overlay ======================== */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05090f] via-[#05090f]/30 to-transparent" />
 
                 {/* ======================== Hover zoom icon ======================== */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-[#7aa2f7]/30 flex items-center justify-center">
-                    <ZoomIn className="w-4 h-4 text-[#7dcfff]" />
+                  <div className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm border border-[#00e5ff]/30 flex items-center justify-center">
+                    <ZoomIn className="w-4 h-4 text-[#7df9ff]" />
                   </div>
                 </div>
 
                 {/* ======================== Award badge ======================== */}
                 <div className="absolute top-2.5 right-2.5">
-                  <div className="w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-[#7aa2f7]/30 flex items-center justify-center">
-                    <Award className="w-3.5 h-3.5 text-[#7dcfff]" />
+                  <div className="w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-[#00e5ff]/30 flex items-center justify-center">
+                    <Award className="w-3.5 h-3.5 text-[#7df9ff]" />
                   </div>
                 </div>
               </div>
 
               {/* ======================== Content ======================== */}
               <div className="p-4">
-                <p className="text-[#4c65ad] font-mono text-[9px] mb-1.5">{cert.year} · {cert.issuer}</p>
-                <h3 className="text-white font-mono font-bold text-xs group-hover:text-[#7dcfff] transition-colors duration-200 leading-snug mb-2">
+                <p className="text-[#0097a7] font-mono text-[9px] mb-1.5">{cert.year} · {cert.issuer}</p>
+                <h3 className="text-white font-mono font-bold text-xs group-hover:text-[#7df9ff] transition-colors duration-200 leading-snug mb-2">
                   {cert.title}
                 </h3>
                 <p className="text-gray-700 font-mono text-[10px] leading-relaxed line-clamp-2">
                   {cert.description}
                 </p>
-                <p className="text-[#384876] font-mono text-[9px] mt-3 group-hover:text-[#6483d9] transition-colors">
+                <p className="text-[#0b4a5c] font-mono text-[9px] mt-3 group-hover:text-[#00b8d4] transition-colors">
                   click to enlarge
                 </p>
               </div>
@@ -120,7 +120,7 @@ export default function Achievements() {
           onClick={() => setSelected(null)}
         >
           <div
-            className="relative max-w-xl w-full bg-[#080808] rounded-2xl border border-[#7aa2f7]/20 overflow-hidden shadow-[0_0_80px_rgba(125,207,255,0.12)]"
+            className="relative max-w-xl w-full bg-[#05090f] rounded-2xl border border-[#00e5ff]/20 overflow-hidden shadow-[0_0_80px_rgba(125,249,255,0.12)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* ======================== Close ======================== */}
@@ -142,8 +142,8 @@ export default function Achievements() {
             </div>
 
             {/* ======================== Info ======================== */}
-            <div className="p-5 border-t border-[#7aa2f7]/10">
-              <p className="text-[#6483d9] font-mono text-[10px] mb-1.5">{selected.issuer} · {selected.year}</p>
+            <div className="p-5 border-t border-[#00e5ff]/10">
+              <p className="text-[#00b8d4] font-mono text-[10px] mb-1.5">{selected.issuer} · {selected.year}</p>
               <h3 className="text-white font-mono font-bold text-base">{selected.title}</h3>
               <p className="text-gray-500 font-mono text-xs mt-2 leading-relaxed">{selected.description}</p>
             </div>

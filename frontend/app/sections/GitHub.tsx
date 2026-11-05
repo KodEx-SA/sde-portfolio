@@ -73,8 +73,8 @@ function timeAgo(dateStr: string) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#7aa2f7]/20 bg-[#7aa2f7]/5 text-[#7aa2f7] text-xs font-mono w-fit">
-      <span className="w-1.5 h-1.5 rounded-full bg-[#7aa2f7] animate-pulse" />
+    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00e5ff]/20 bg-[#00e5ff]/5 text-[#00e5ff] text-xs font-mono w-fit">
+      <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse" />
       {children}
     </div>
   );
@@ -97,18 +97,18 @@ function StatCard({
     <div
       className={`relative flex flex-col items-center justify-center gap-1.5 p-4 rounded-xl border text-center overflow-hidden group transition-all duration-300 ${
         highlight
-          ? "border-[#7aa2f7]/35 bg-[#7aa2f7]/8 shadow-[0_0_20px_rgba(125,207,255,0.06)]"
-          : "border-[#7aa2f7]/10 bg-[#0a0a0a] hover:border-[#7aa2f7]/25 hover:bg-[#0f0f0f]"
+          ? "border-[#00e5ff]/35 bg-[#00e5ff]/8 shadow-[0_0_20px_rgba(125,249,255,0.06)]"
+          : "border-[#00e5ff]/10 bg-[#060b12] hover:border-[#00e5ff]/25 hover:bg-[#08111a]"
       }`}
     >
-      <span className="absolute inset-0 bg-[#7aa2f7]/4 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 pointer-events-none" />
-      <div className="w-8 h-8 rounded-lg bg-[#7aa2f7]/10 border border-[#7aa2f7]/20 flex items-center justify-center mb-1 relative z-10">
-        <Icon className="w-4 h-4 text-[#7dcfff]" />
+      <span className="absolute inset-0 bg-[#00e5ff]/4 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 pointer-events-none" />
+      <div className="w-8 h-8 rounded-lg bg-[#00e5ff]/10 border border-[#00e5ff]/20 flex items-center justify-center mb-1 relative z-10">
+        <Icon className="w-4 h-4 text-[#7df9ff]" />
       </div>
       <span className="font-mono text-lg font-bold text-white relative z-10">
         {value}
       </span>
-      <span className="font-mono text-[10px] text-[#6483d9] font-semibold uppercase tracking-widest relative z-10">
+      <span className="font-mono text-[10px] text-[#00b8d4] font-semibold uppercase tracking-widest relative z-10">
         {label}
       </span>
       {sub && (
@@ -134,19 +134,19 @@ function RepoCard({ repo }: { repo: Repo }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="group relative flex flex-col gap-3 p-4 rounded-xl border border-[#7aa2f7]/10 bg-[#0a0a0a] hover:border-[#7aa2f7]/30 hover:bg-[#0f0f0f] transition-all duration-300 hover:shadow-[0_0_24px_rgba(125,207,255,0.05)]"
+      className="group relative flex flex-col gap-3 p-4 rounded-xl border border-[#00e5ff]/10 bg-[#060b12] hover:border-[#00e5ff]/30 hover:bg-[#08111a] transition-all duration-300 hover:shadow-[0_0_24px_rgba(125,249,255,0.05)]"
     >
-      <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#7aa2f7]/0 group-hover:border-[#7aa2f7]/40 rounded-tl-xl transition-all duration-300" />
-      <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#7aa2f7]/0 group-hover:border-[#7aa2f7]/40 rounded-br-xl transition-all duration-300" />
+      <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#00e5ff]/0 group-hover:border-[#00e5ff]/40 rounded-tl-xl transition-all duration-300" />
+      <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#00e5ff]/0 group-hover:border-[#00e5ff]/40 rounded-br-xl transition-all duration-300" />
 
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2 min-w-0">
-          <BookOpen className="w-3.5 h-3.5 text-[#6483d9] flex-shrink-0" />
-          <span className="font-mono text-xs font-semibold text-gray-300 group-hover:text-[#b8cdfa] transition-colors truncate">
+          <BookOpen className="w-3.5 h-3.5 text-[#00b8d4] flex-shrink-0" />
+          <span className="font-mono text-xs font-semibold text-gray-300 group-hover:text-[#c9fbff] transition-colors truncate">
             {repo.name}
           </span>
         </div>
-        <ExternalLink className="w-3 h-3 text-gray-700 group-hover:text-[#7aa2f7] transition-colors flex-shrink-0 mt-0.5" />
+        <ExternalLink className="w-3 h-3 text-gray-700 group-hover:text-[#00e5ff] transition-colors flex-shrink-0 mt-0.5" />
       </div>
 
       <p className="text-[11px] text-gray-600 font-mono leading-relaxed line-clamp-2 flex-1">
@@ -158,7 +158,7 @@ function RepoCard({ repo }: { repo: Repo }) {
           {repo.topics.slice(0, 3).map((t) => (
             <span
               key={t}
-              className="text-[9px] font-mono px-2 py-0.5 rounded-full border border-[#7aa2f7]/15 bg-[#7aa2f7]/5 text-[#4c65ad]"
+              className="text-[9px] font-mono px-2 py-0.5 rounded-full border border-[#00e5ff]/15 bg-[#00e5ff]/5 text-[#0097a7]"
             >
               {t}
             </span>
@@ -258,12 +258,12 @@ export default function GitHub({ username = USERNAME }) {
       {/* ======================== Grid texture ======================== */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(rgba(122,162,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(122,162,247,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"
+        className="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"
       />
       {/* ======================== Glow ======================== */}
       <div
         aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-[#7aa2f7]/3 blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-[#00e5ff]/3 blur-3xl pointer-events-none"
       />
 
       <div className="relative max-w-6xl mx-auto flex flex-col gap-14">
@@ -279,12 +279,16 @@ export default function GitHub({ username = USERNAME }) {
 
           <div className="flex items-end justify-between flex-wrap gap-4">
             <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-3 rounded-sm border border-[#00e5ff]/30 bg-[#00e5ff]/5 text-[#00e5ff] text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase w-fit">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff]" />
+                [ 06 // github.activity ]
+              </div>
               <h2 className="text-4xl md:text-5xl font-black font-mono text-white leading-tight">
-                Code <span className="text-[#7dcfff]">Activity</span>
+                Code <span className="text-[#7df9ff]">Activity</span>
               </h2>
-              <div className="w-10 h-0.5 bg-[#7aa2f7]/50 mt-3" />
+              <div className="w-10 h-0.5 bg-[#00e5ff]/50 mt-3" />
               <p className="text-gray-600 font-mono text-sm mt-3">
-                <span className="text-[#4c65ad]">$</span> git log --all
+                <span className="text-[#0097a7]">$</span> git log --all
                 --oneline &nbsp;—&nbsp; live data from the GitHub API
               </p>
             </div>
@@ -295,9 +299,9 @@ export default function GitHub({ username = USERNAME }) {
                 href={`https://github.com/${username}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-[#7aa2f7]/15 bg-[#0a0a0a] hover:border-[#7aa2f7]/35 hover:bg-[#7aa2f7]/5 transition-all duration-200 group"
+                className="flex items-center gap-3 px-4 py-2.5 rounded-xl border border-[#00e5ff]/15 bg-[#060b12] hover:border-[#00e5ff]/35 hover:bg-[#00e5ff]/5 transition-all duration-200 group"
               >
-                <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#7aa2f7]/25 flex-shrink-0">
+                <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#00e5ff]/25 flex-shrink-0">
                   <Image
                     src={user.avatar_url}
                     alt={username}
@@ -307,7 +311,7 @@ export default function GitHub({ username = USERNAME }) {
                   />
                 </div>
                 <div className="text-left">
-                  <p className="font-mono text-xs font-semibold text-gray-300 group-hover:text-[#b8cdfa] transition-colors">
+                  <p className="font-mono text-xs font-semibold text-gray-300 group-hover:text-[#c9fbff] transition-colors">
                     @{username}
                   </p>
                   {user.bio && (
@@ -316,7 +320,7 @@ export default function GitHub({ username = USERNAME }) {
                     </p>
                   )}
                 </div>
-                <ExternalLink className="w-3 h-3 text-gray-700 group-hover:text-[#7aa2f7] transition-colors flex-shrink-0" />
+                <ExternalLink className="w-3 h-3 text-gray-700 group-hover:text-[#00e5ff] transition-colors flex-shrink-0" />
               </a>
             )}
           </div>
@@ -329,16 +333,16 @@ export default function GitHub({ username = USERNAME }) {
               {[0, 1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="h-24 rounded-xl bg-[#7aa2f7]/5 border border-[#7aa2f7]/8 animate-pulse"
+                  className="h-24 rounded-xl bg-[#00e5ff]/5 border border-[#00e5ff]/8 animate-pulse"
                 />
               ))}
             </div>
-            <div className="h-36 rounded-2xl bg-[#7aa2f7]/5 border border-[#7aa2f7]/8 animate-pulse" />
+            <div className="h-36 rounded-2xl bg-[#00e5ff]/5 border border-[#00e5ff]/8 animate-pulse" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <div
                   key={i}
-                  className="h-44 rounded-xl bg-[#7aa2f7]/5 border border-[#7aa2f7]/8 animate-pulse"
+                  className="h-44 rounded-xl bg-[#00e5ff]/5 border border-[#00e5ff]/8 animate-pulse"
                 />
               ))}
             </div>
@@ -347,7 +351,7 @@ export default function GitHub({ username = USERNAME }) {
 
         {/* ======================== Error ======================== */}
         {!loading && error && (
-          <div className="flex flex-col items-center justify-center py-20 gap-4 border border-[#7aa2f7]/10 rounded-2xl bg-[#0a0a0a]">
+          <div className="flex flex-col items-center justify-center py-20 gap-4 border border-[#00e5ff]/10 rounded-2xl bg-[#060b12]">
             <FaGithub className="w-8 h-8 text-gray-700" />
             <p className="font-mono text-xs text-gray-600">
               Could not reach GitHub API.{" "}
@@ -355,7 +359,7 @@ export default function GitHub({ username = USERNAME }) {
                 href={`https://github.com/${username}?tab=repositories`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6483d9] underline underline-offset-2 hover:text-[#7dcfff]"
+                className="text-[#00b8d4] underline underline-offset-2 hover:text-[#7df9ff]"
               >
                 View profile on GitHub →
               </a>
@@ -414,10 +418,10 @@ export default function GitHub({ username = USERNAME }) {
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="flex items-center gap-3 p-3 rounded-xl border border-[#7aa2f7]/8 bg-[#0a0a0a]"
+                  className="flex items-center gap-3 p-3 rounded-xl border border-[#00e5ff]/8 bg-[#060b12]"
                 >
-                  <div className="w-7 h-7 rounded-lg bg-[#7aa2f7]/10 border border-[#7aa2f7]/15 flex items-center justify-center flex-shrink-0">
-                    <s.icon className="w-3.5 h-3.5 text-[#7aa2f7]" />
+                  <div className="w-7 h-7 rounded-lg bg-[#00e5ff]/10 border border-[#00e5ff]/15 flex items-center justify-center flex-shrink-0">
+                    <s.icon className="w-3.5 h-3.5 text-[#00e5ff]" />
                   </div>
                   <div>
                     <p className="font-mono text-xs font-bold text-white">
@@ -440,14 +444,14 @@ export default function GitHub({ username = USERNAME }) {
               className="flex flex-col gap-4"
             >
               <SectionLabel>contribution.graph</SectionLabel>
-              <div className="p-4 md:p-6 rounded-2xl border border-[#7aa2f7]/10 bg-[#0a0a0a] overflow-hidden">
+              <div className="p-4 md:p-6 rounded-2xl border border-[#00e5ff]/10 bg-[#060b12] overflow-hidden">
                 <div className="flex items-center gap-2 mb-4">
-                  <GitCommitHorizontal className="w-3.5 h-3.5 text-[#7aa2f7]/60" />
+                  <GitCommitHorizontal className="w-3.5 h-3.5 text-[#00e5ff]/60" />
                   <span className="font-mono text-[10px] text-gray-600">
                     contributions — past 12 months
                   </span>
-                  <span className="ml-auto flex items-center gap-1.5 text-[10px] font-mono text-[#384876]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#7aa2f7] animate-pulse" />
+                  <span className="ml-auto flex items-center gap-1.5 text-[10px] font-mono text-[#0b4a5c]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse" />
                     live
                   </span>
                 </div>
@@ -459,14 +463,14 @@ export default function GitHub({ username = USERNAME }) {
                       href={`https://github.com/${username}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-1 text-[#4c65ad] underline underline-offset-2"
+                      className="ml-1 text-[#0097a7] underline underline-offset-2"
                     >
                       view on GitHub
                     </a>
                   </div>
                 ) : (
                   <Image
-                    src={`https://ghchart.rshah.org/22c55e/${username}`}
+                    src={`https://ghchart.rshah.org/00e5ff/${username}`}
                     alt={`${username} GitHub contribution graph`}
                     width={900}
                     height={130}
@@ -487,7 +491,7 @@ export default function GitHub({ username = USERNAME }) {
                     href={`https://github.com/${username}?tab=repositories`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 font-mono text-[10px] text-gray-600 hover:text-[#7dcfff] transition-colors"
+                    className="flex items-center gap-1 font-mono text-[10px] text-gray-600 hover:text-[#7df9ff] transition-colors"
                   >
                     View all <ChevronRight className="w-3 h-3" />
                   </a>

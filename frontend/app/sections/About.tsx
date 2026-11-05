@@ -19,20 +19,20 @@ const facts = [
 export default function About() {
   return (
     <section id="about" className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(122,162,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(122,162,247,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#7aa2f7]/20 bg-[#7aa2f7]/5 text-[#7aa2f7] text-xs font-mono w-fit">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7aa2f7]" />
-            about.me
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#00e5ff]/30 bg-[#00e5ff]/5 text-[#00e5ff] text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff]" />
+            [ 02 // about.me ]
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white font-mono">
-            Who Am <span className="text-[#7dcfff]">I?</span>
+            Who Am <span className="text-[#7df9ff]">I?</span>
           </h2>
-          <div className="w-10 h-0.5 bg-[#7aa2f7]/50" />
+          <div className="w-10 h-0.5 bg-[#00e5ff]/50" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-16 items-start">
@@ -42,8 +42,8 @@ export default function About() {
 
             {/* ======================== Photo ======================== */}
             <div className="relative w-fit">
-              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-[#7aa2f7]/20 to-transparent blur" />
-              <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border border-[#7aa2f7]/20">
+              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-[#00e5ff]/20 to-transparent blur" />
+              <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border border-[#00e5ff]/20">
                 <Image
                   src="/assets/images/my_pic.png"
                   fill
@@ -51,16 +51,16 @@ export default function About() {
                   alt="..."
                 />
               </div>
-              <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#7aa2f7]/50" />
-              <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#7aa2f7]/50" />
+              <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#00e5ff]/50" />
+              <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#00e5ff]/50" />
             </div>
 
             {/* ======================== Facts ======================== */}
             <div className="flex flex-col gap-3">
               {facts.map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-start gap-3 group">
-                  <div className="mt-0.5 w-7 h-7 rounded-md bg-[#7aa2f7]/8 border border-[#7aa2f7]/15 flex items-center justify-center flex-shrink-0 group-hover:border-[#7aa2f7]/35 transition-colors duration-200">
-                    <Icon className="w-3.5 h-3.5 text-[#7aa2f7]" />
+                  <div className="mt-0.5 w-7 h-7 rounded-md bg-[#00e5ff]/8 border border-[#00e5ff]/15 flex items-center justify-center flex-shrink-0 group-hover:border-[#00e5ff]/35 transition-colors duration-200">
+                    <Icon className="w-3.5 h-3.5 text-[#00e5ff]" />
                   </div>
                   <div>
                     <p className="text-gray-700 font-mono text-[9px] uppercase tracking-widest">{label}</p>
@@ -91,7 +91,7 @@ export default function About() {
                   href="https://github.com/KodEx-SA"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#7dcfff] hover:text-[#b8cdfa] transition-colors"
+                  className="text-[#7df9ff] hover:text-[#c9fbff] transition-colors"
                 >
                   KodEx-SA
                 </a>
@@ -102,19 +102,19 @@ export default function About() {
 
             {/* ======================== Active roles ======================== */}
             <div>
-              <p className="text-[#6483d9] font-mono text-[10px] mb-4">$ cat active_roles.txt</p>
+              <p className="text-[#00b8d4] font-mono text-[10px] mb-4">$ cat active_roles.txt</p>
               <div className="flex flex-col gap-2.5">
                 {roles.map((role, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-3.5 rounded-xl border border-[#7aa2f7]/10 bg-[#7aa2f7]/3 hover:border-[#7aa2f7]/25 hover:bg-[#7aa2f7]/6 transition-all duration-200 group"
+                    className="flex items-start gap-3 p-3.5 rounded-xl border border-[#00e5ff]/10 bg-[#00e5ff]/3 hover:border-[#00e5ff]/25 hover:bg-[#00e5ff]/6 transition-all duration-200 group"
                   >
-                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#7dcfff] flex-shrink-0 animate-pulse" />
+                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#7df9ff] flex-shrink-0 animate-pulse" />
                     <div>
                       <p className="text-white font-mono text-xs font-bold leading-snug">{role.title}</p>
                       <p className="text-gray-600 font-mono text-[10px] mt-0.5">
                         {role.company}
-                        <span className="text-[#384876] ml-1.5">— {role.type}</span>
+                        <span className="text-[#0b4a5c] ml-1.5">— {role.type}</span>
                       </p>
                     </div>
                   </div>

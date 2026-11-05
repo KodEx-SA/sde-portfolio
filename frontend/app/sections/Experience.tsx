@@ -64,36 +64,36 @@ export default function Experience() {
     <section id="experience" className="relative py-24 md:py-32 px-6 md:px-20 overflow-hidden">
 
       {/* ======================== Background ======================== */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(122,162,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(122,162,247,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_50%,rgba(122,162,247,0.03),transparent)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,229,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_50%,rgba(0,229,255,0.03),transparent)] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ======================== Header ======================== */}
         <div className="flex flex-col gap-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#7aa2f7]/20 bg-[#7aa2f7]/5 text-[#7aa2f7] text-xs font-mono w-fit">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7aa2f7]" />
-            experience.log
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#00e5ff]/30 bg-[#00e5ff]/5 text-[#00e5ff] text-[10px] sm:text-xs font-mono tracking-[0.2em] uppercase w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff]" />
+            [ 03 // experience.log ]
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white font-mono">
-            Work <span className="text-[#7dcfff]">Experience</span>
+            Work <span className="text-[#7df9ff]">Experience</span>
           </h2>
-          <div className="w-10 h-0.5 bg-[#7aa2f7]/50" />
+          <div className="w-10 h-0.5 bg-[#00e5ff]/50" />
         </div>
 
         {/* ======================== Active roles badge ======================== */}
         <div className="flex items-center gap-3 mb-10">
-          <p className="text-[#6483d9] font-mono text-xs">$ echo $ACTIVE_ROLES</p>
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-[#7aa2f7]/20 bg-[#7aa2f7]/5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7dcfff] animate-pulse" />
-            <span className="text-[#7aa2f7] font-mono text-xs">1 active position & 2 past positions</span>
+          <p className="text-[#00b8d4] font-mono text-xs">$ echo $ACTIVE_ROLES</p>
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-[#00e5ff]/20 bg-[#00e5ff]/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#7df9ff] animate-pulse" />
+            <span className="text-[#00e5ff] font-mono text-xs">1 active position & 2 past positions</span>
           </div>
         </div>
 
         {/* ======================== Timeline ======================== */}
         <div className="relative">
           {/* ======================== Vertical line ======================== */}
-          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#7aa2f7]/40 via-[#7aa2f7]/20 to-transparent" />
+          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#00e5ff]/40 via-[#00e5ff]/20 to-transparent" />
 
           <div className="flex flex-col gap-4">
             {experiences.map((exp, i) => {
@@ -105,15 +105,15 @@ export default function Experience() {
                   <div className="absolute left-2.5 md:left-4 top-5 flex flex-col items-center">
                     <div className={`w-3 h-3 rounded-full border-2 transition-colors duration-300 ${
                       exp.current
-                        ? "bg-[#7dcfff] border-[#7dcfff] shadow-[0_0_8px_rgba(125,207,255,0.6)]"
-                        : "bg-transparent border-[#7aa2f7]/40"
+                        ? "bg-[#7df9ff] border-[#7df9ff] shadow-[0_0_8px_rgba(125,249,255,0.6)]"
+                        : "bg-transparent border-[#00e5ff]/40"
                     }`} />
                   </div>
 
                   {/* ======================== Card ======================== */}
                   <div
-                    className={`rounded-xl border bg-[#080808] transition-all duration-300 overflow-hidden ${
-                      isOpen ? "border-[#7aa2f7]/25" : "border-[#7aa2f7]/10 hover:border-[#7aa2f7]/20"
+                    className={`rounded-xl border bg-[#05090f] transition-all duration-300 overflow-hidden ${
+                      isOpen ? "border-[#00e5ff]/25" : "border-[#00e5ff]/10 hover:border-[#00e5ff]/20"
                     }`}
                   >
                     {/* ======================== Card header - always visible, clickable ======================== */}
@@ -125,13 +125,13 @@ export default function Experience() {
                         {/* ======================== Role + current badge ======================== */}
                         <div className="flex flex-wrap items-center gap-2">
                           <h3 className={`font-mono font-bold text-sm md:text-base transition-colors duration-200 ${
-                            isOpen ? "text-[#7dcfff]" : "text-white group-hover:text-[#7dcfff]"
+                            isOpen ? "text-[#7df9ff]" : "text-white group-hover:text-[#7df9ff]"
                           }`}>
                             {exp.title}
                           </h3>
                           {exp.current && (
-                            <span className="inline-flex items-center gap-1 text-[9px] font-mono px-2 py-0.5 rounded-full border border-[#7aa2f7]/30 bg-[#7aa2f7]/10 text-[#7aa2f7]">
-                              <span className="w-1 h-1 rounded-full bg-[#7dcfff] animate-pulse" />
+                            <span className="inline-flex items-center gap-1 text-[9px] font-mono px-2 py-0.5 rounded-full border border-[#00e5ff]/30 bg-[#00e5ff]/10 text-[#00e5ff]">
+                              <span className="w-1 h-1 rounded-full bg-[#7df9ff] animate-pulse" />
                               current
                             </span>
                           )}
@@ -143,15 +143,15 @@ export default function Experience() {
                         {/* ======================== Company + meta ======================== */}
                         <div className="flex flex-wrap items-center gap-3 text-[11px] font-mono text-gray-600">
                           <span className="flex items-center gap-1.5">
-                            <Briefcase className="w-3 h-3 text-[#384876]" />
+                            <Briefcase className="w-3 h-3 text-[#0b4a5c]" />
                             {exp.company}
                           </span>
                           <span className="flex items-center gap-1.5">
-                            <Calendar className="w-3 h-3 text-[#384876]" />
+                            <Calendar className="w-3 h-3 text-[#0b4a5c]" />
                             {exp.period}
                           </span>
                           <span className="flex items-center gap-1.5">
-                            <MapPin className="w-3 h-3 text-[#384876]" />
+                            <MapPin className="w-3 h-3 text-[#0b4a5c]" />
                             {exp.location}
                           </span>
                         </div>
@@ -159,8 +159,8 @@ export default function Experience() {
 
                       {/* ======================== Chevron ======================== */}
                       <ChevronDown
-                        className={`w-4 h-4 text-gray-600 flex-shrink-0 mt-1 transition-all duration-300 group-hover:text-[#7aa2f7] ${
-                          isOpen ? "rotate-180 text-[#7aa2f7]" : ""
+                        className={`w-4 h-4 text-gray-600 flex-shrink-0 mt-1 transition-all duration-300 group-hover:text-[#00e5ff] ${
+                          isOpen ? "rotate-180 text-[#00e5ff]" : ""
                         }`}
                       />
                     </button>
@@ -171,7 +171,7 @@ export default function Experience() {
                         isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                       } overflow-hidden`}
                     >
-                      <div className="px-5 pb-5 flex flex-col gap-5 border-t border-[#7aa2f7]/8">
+                      <div className="px-5 pb-5 flex flex-col gap-5 border-t border-[#00e5ff]/8">
 
                         {/* ======================== Description ======================== */}
                         <p className="text-gray-300 text-sm leading-relaxed pt-4">
@@ -180,11 +180,11 @@ export default function Experience() {
 
                         {/* ======================== Highlights ======================== */}
                         <div>
-                          <p className="text-[#7dcfff] font-mono text-[10px] mb-3">$ cat highlights.txt</p>
+                          <p className="text-[#7df9ff] font-mono text-[10px] mb-3">$ cat highlights.txt</p>
                           <ul className="flex flex-col gap-2">
                             {exp.highlights.map((h, j) => (
                               <li key={j} className="flex items-start gap-2.5 text-gray-500 text-xs leading-relaxed">
-                                <span className="text-[#6483d9] font-mono mt-0.5 flex-shrink-0">›</span>
+                                <span className="text-[#00b8d4] font-mono mt-0.5 flex-shrink-0">›</span>
                                 {h}
                               </li>
                             ))}
@@ -193,12 +193,12 @@ export default function Experience() {
 
                         {/* ======================== Stack ======================== */}
                         <div>
-                          <p className="text-[#4c65ad] font-mono text-[10px] mb-3">$ ls stack/</p>
+                          <p className="text-[#0097a7] font-mono text-[10px] mb-3">$ ls stack/</p>
                           <div className="flex flex-wrap gap-2">
                             {exp.stack.map((s) => (
                               <span
                                 key={s}
-                                className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-[#7aa2f7]/6 text-[#7dcfff] border border-[#7aa2f7]/15 hover:border-[#7aa2f7]/30 transition-colors duration-200"
+                                className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-[#00e5ff]/6 text-[#7df9ff] border border-[#00e5ff]/15 hover:border-[#00e5ff]/30 transition-colors duration-200"
                               >
                                 {s}
                               </span>

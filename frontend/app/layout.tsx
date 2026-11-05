@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import Header from "./sections/Header"
 import Analytics from "@/components/Analytics"
+import BootScreen from "@/components/BootScreen"
 import "./globals.css"
 
 const geistSans = Geist({
@@ -40,8 +41,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white">
+      <body className="hud-body min-h-full flex flex-col bg-[#04070d] text-white">
         <TooltipProvider>
+          <BootScreen />
           <Analytics />
           <Header />
           {children}
