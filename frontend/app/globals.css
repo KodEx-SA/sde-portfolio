@@ -206,3 +206,43 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .reactor-cw, .reactor-ccw, .reactor-cw-fast, .reactor-core { animation: none; }
 }
+
+/* HUD corner brackets on cards: add `hud-corners` to any card (brighten on hover) */
+.hud-corners { position: relative; }
+.hud-corners::before,
+.hud-corners::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(#00e5ff, #00e5ff), linear-gradient(#00e5ff, #00e5ff),
+    linear-gradient(#00e5ff, #00e5ff), linear-gradient(#00e5ff, #00e5ff);
+  background-size: 14px 2px, 2px 14px, 14px 2px, 2px 14px;
+}
+.hud-corners::before { background-position: 0 0, 0 0, 100% 100%, 100% 100%; }
+.hud-corners::after  { background-position: 100% 0, 100% 0, 0 100%, 0 100%; }
+.hud-corners:hover::before,
+.hud-corners:hover::after { opacity: 1; }
+
+/* processing sweep line + text cursor blink (used by the Smith console) */
+@keyframes hud-sweep {
+  0%   { top: 0; opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+.hud-sweep { animation: hud-sweep 2.2s linear infinite; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-sweep { animation: none; opacity: 0; }
+}

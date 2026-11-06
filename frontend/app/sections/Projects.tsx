@@ -126,7 +126,7 @@ export default function Projects() {
           {featured.map((project, i) => (
             <div
               key={i}
-              className="group grid grid-cols-1 md:grid-cols-2 rounded-xl border border-[#00e5ff]/10 bg-[#05090f] overflow-hidden hover:border-[#00e5ff]/30 transition-all duration-400 hover:shadow-[0_0_40px_rgba(125,249,255,0.06)]"
+              className="hud-corners group grid grid-cols-1 md:grid-cols-2 rounded-md border border-[#00e5ff]/20 bg-[#05090f] overflow-hidden hover:border-[#00e5ff]/30 transition-all duration-400 hover:shadow-[0_0_40px_rgba(125,249,255,0.06)]"
             >
               {/* ======================== Image panel ======================== */}
               <div className={`h-56 md:h-auto relative overflow-hidden flex-shrink-0 ${i % 2 !== 0 ? "md:order-last" : ""}`}>
@@ -160,10 +160,10 @@ export default function Projects() {
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="inline-flex items-center gap-1 text-[9px] font-mono px-2 py-0.5 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[#00e5ff]">
                     <span className="w-1 h-1 rounded-full bg-[#7df9ff] animate-pulse" />
-                    {project.year}
+                    PRJ-{String(i + 1).padStart(2, "0")} · {project.year}
                   </span>
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-white/3 border border-white/8 text-gray-600">
+                    <span key={tag} className="text-[9px] font-mono px-2 py-0.5 rounded-sm bg-[#00e5ff]/[0.04] border border-[#00e5ff]/15 text-[#8fb3bd]">
                       #{tag}
                     </span>
                   ))}
@@ -177,12 +177,12 @@ export default function Projects() {
                 {/* ======================== Animated underline ======================== */}
                 <div className="h-px w-8 group-hover:w-full bg-gradient-to-r from-[#00e5ff]/60 to-transparent transition-all duration-500 ease-out" />
 
-                <p className="text-gray-500 text-sm leading-relaxed">{project.description}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">{project.description}</p>
 
                 {/* ======================== Stack ======================== */}
                 <div className="flex flex-wrap gap-1.5">
                   {project.stack.map((s) => (
-                    <span key={s} className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-white/3 text-gray-500 border border-white/6 hover:border-[#00e5ff]/20 hover:text-gray-400 transition-colors duration-200">
+                    <span key={s} className="text-[10px] font-mono px-2.5 py-1 rounded-sm bg-white/3 text-[#8fb3bd] border border-white/6 hover:border-[#00e5ff]/30 hover:text-[#c9fbff] transition-colors duration-200">
                       {s}
                     </span>
                   ))}
@@ -222,7 +222,7 @@ export default function Projects() {
           {rest.map((project, i) => (
             <div
               key={i}
-              className="group rounded-xl border border-[#00e5ff]/10 bg-[#05090f] hover:border-[#00e5ff]/25 hover:shadow-[0_0_24px_rgba(125,249,255,0.05)] transition-all duration-300 overflow-hidden flex flex-col hover:-translate-y-0.5"
+              className="hud-corners group rounded-md border border-[#00e5ff]/20 bg-[#05090f] hover:border-[#00e5ff]/25 hover:shadow-[0_0_24px_rgba(125,249,255,0.05)] transition-all duration-300 overflow-hidden flex flex-col hover:-translate-y-0.5"
             >
               {/* Thumbnail */}
               <div className="relative h-32 w-full overflow-hidden flex-shrink-0">
@@ -249,7 +249,7 @@ export default function Projects() {
                 {/* ======================== Year badge ======================== */}
                 <div className="absolute top-2 left-2 z-10">
                   <span className="text-[8px] font-mono px-1.5 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-[#00e5ff]/20 text-[#00b8d4]">
-                    {project.year}
+                    PRJ-{String(featured.length + i + 1).padStart(2, "0")} · {project.year}
                   </span>
                 </div>
 
